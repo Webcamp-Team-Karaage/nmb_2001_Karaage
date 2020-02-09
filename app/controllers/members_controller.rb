@@ -17,6 +17,13 @@ class MembersController < ApplicationController
   	@member = Member.find(params[:id])
   end
 
+  def withdraw
+    @member = Member.find(params[:id])
+    @member.status = 1
+    @member.save
+    redirect_to root_path
+  end
+
   private
   def member_params
   	params.require(:member).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :postal_code, :address, :phone, :status)

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   get 'home/about' => 'homes#about'
   get 'members/:id/delete_me' => 'members#delete_me', as: 'delete_me'
+  put 'members/:id/delete_me' => 'members#withdraw', as: 'withdraw' #会員退会用メソッド
   delete 'cart_products' => 'cart_products#destroy_all'
   get 'members/:id/orders/input' => 'orders#input', as: 'input'
   get 'orders/thanks' => 'orders#thanks'
