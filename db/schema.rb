@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2020_02_08_044430) do
 
   create_table "members", force: :cascade do |t|
@@ -19,9 +18,21 @@ ActiveRecord::Schema.define(version: 2020_02_08_044430) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "first_name_kana", null: false
+    t.string "last_name_kana", null: false
+    t.string "postal_code", null: false
+    t.text "address", null: false
+    t.string "phone", null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_members_on_email", unique: true
+    t.index ["first_name"], name: "index_members_on_first_name"
+    t.index ["first_name_kana"], name: "index_members_on_first_name_kana"
+    t.index ["last_name"], name: "index_members_on_last_name"
+    t.index ["last_name_kana"], name: "index_members_on_last_name_kana"
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
