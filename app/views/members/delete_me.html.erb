@@ -5,4 +5,4 @@
 退会する場合は、「退会する」をクリックしてください。</p><br>
 
 <%= link_to "退会しない", member_path(@member.id) %>
-<%= link_to "退会する", member_path(@member.id), method: :patch, params: { status: '1'} %>
+<%= link_to "退会する", member_path(@member.id) %>
