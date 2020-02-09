@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_08_044430) do
+
+ActiveRecord::Schema.define(version: 2020_02_09_050356) do
+
+  create_table "cart_products", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "product_id"
+    t.integer "count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 
   create_table "members", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -34,6 +44,31 @@ ActiveRecord::Schema.define(version: 2020_02_08_044430) do
     t.index ["last_name"], name: "index_members_on_last_name"
     t.index ["last_name_kana"], name: "index_members_on_last_name_kana"
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "payment"
+    t.string "address_name"
+    t.string "postal_code"
+    t.text "address"
+    t.integer "postage"
+    t.integer "status"
+    t.string "total_price"
+    t.string "float"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.integer "genre_id"
+    t.string "name"
+    t.text "text"
+    t.integer "price"
+    t.integer "status"
+    t.string "product_image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
