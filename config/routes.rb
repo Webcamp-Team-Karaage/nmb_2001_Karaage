@@ -11,11 +11,13 @@ Rails.application.routes.draw do
   get 'orders/thanks' => 'orders#thanks'
   get 'admins/top' => 'admins#top'
 
+  resources :members, only: [:show, :edit, :update]
   resources :shipping_addresses, only: [:index, :create, :destroy, :edit, :update]
   resources :cart_products, only: [:index, :create, :update, :destroy]
   resources :orders, only: [:index, :show, :new, :create]
   resources :products, only: [:index, :show]
 
+  resources :admin_members, only: [:index, :show, :edit, :update]
   resources :admin_orders, only: [:index, :show, :update]
   resources :admin_order_products, only: [:update]
   resources :admin_products, only: [:index, :new, :create, :show, :edit, :update]
