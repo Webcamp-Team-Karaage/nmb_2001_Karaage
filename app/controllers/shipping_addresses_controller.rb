@@ -7,7 +7,7 @@ class ShippingAddressesController < ApplicationController
 
 	def create
 		@sipping_address = Book.new(sipping_address_params)
-		if @bsipping_address.save
+		if @sipping_address.save
 			redirect_to sipping_address_path(@sipping_address)
 		else
 			@sipping_addresses = Sippin_gaddress.all
