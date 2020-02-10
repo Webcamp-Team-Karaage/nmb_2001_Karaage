@@ -6,9 +6,13 @@ one:
   text: MyText
   price: 1
   status: 1
+<<<<<<< HEAD
   products_image_id: 
   created_at: 2020-02-10 02:48:48
   update_at: 2020-02-10 02:48:48
+=======
+  product_image_id: MyString
+>>>>>>> origin/master
 
 two:
   genre_id: 1
@@ -16,6 +20,10 @@ two:
   text: MyText
   price: 1
   status: 1
+<<<<<<< HEAD
   products_image_id: 
   created_at: 2020-02-10 02:48:48
   update_at: 2020-02-10 02:48:48
+=======
+  product_image_id: MyString
+>>>>>>> origin/master
