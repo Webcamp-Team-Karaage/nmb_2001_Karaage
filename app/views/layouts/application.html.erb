@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <header>
+            <ul>
+            <li><%= link_to "トップページ" %>
+            <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete%></li>
+            <li><%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete%></li>
+          </ul>
+    </header>
     <%= yield %>
   </body>
 </html>
