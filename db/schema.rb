@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
+
 ActiveRecord::Schema.define(version: 2020_02_10_025221) do
 
   create_table "admins", force: :cascade do |t|
@@ -35,14 +35,14 @@ ActiveRecord::Schema.define(version: 2020_02_10_025221) do
   create_table "genres", force: :cascade do |t|
     t.integer "name"
     t.boolean "status"
-=======
-ActiveRecord::Schema.define(version: 2020_02_09_050356) do
+
+ActiveRecord::Schema.define(version: 2020_02_09_103818) do
 
   create_table "cart_products", force: :cascade do |t|
     t.integer "member_id"
     t.integer "product_id"
     t.integer "count"
->>>>>>> origin/master
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,11 +55,23 @@ ActiveRecord::Schema.define(version: 2020_02_09_050356) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "first_name_kana"
+    t.string "last_name_kana"
+    t.string "postal_code"
+    t.string "phone"
+    t.integer "status", default: 0
+    t.text "address"
     t.index ["email"], name: "index_members_on_email", unique: true
+    t.index ["first_name"], name: "index_members_on_first_name"
+    t.index ["first_name_kana"], name: "index_members_on_first_name_kana"
+    t.index ["last_name"], name: "index_members_on_last_name"
+    t.index ["last_name_kana"], name: "index_members_on_last_name_kana"
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
-<<<<<<< HEAD
+
 =======
   create_table "orders", force: :cascade do |t|
     t.integer "member_id"
@@ -75,21 +87,17 @@ ActiveRecord::Schema.define(version: 2020_02_09_050356) do
     t.datetime "updated_at", null: false
   end
 
->>>>>>> origin/master
+
   create_table "products", force: :cascade do |t|
     t.integer "genre_id"
     t.string "name"
     t.text "text"
     t.integer "price"
     t.integer "status"
-<<<<<<< HEAD
-    t.string "products_image_id"
-    t.datetime "created_at", null: false
-    t.datetime "update_at"
-=======
+
     t.string "product_image_id"
     t.datetime "created_at", null: false
->>>>>>> origin/master
+
     t.datetime "updated_at", null: false
   end
 

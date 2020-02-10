@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :admins
-  devise_for :members
-  
-  resources :admin_genres
+<
+
+  # 会員ログイン・サインインのコントローラとして会員用作成したコントローラを指定
+    devise_for :members, controllers: {
+        sessions:      'members/sessions',
+        passwords:     'members/passwords',
+        registrations: 'members/registrations'
+    }
+
+  get 'members/show'
+  get 'members/edit'
+  get 'members/update'
+  # devise_for :members
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "home#top"
 
