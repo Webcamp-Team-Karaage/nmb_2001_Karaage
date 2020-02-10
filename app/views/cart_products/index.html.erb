@@ -1,0 +1,59 @@
+<div class="body">
+  <div class="container">
+    <div class="row">
+      <!-- カートページ -->
+      <div>
+        <h4>ショッピングカート</h4>
+        <a class = "show-icon">
+          <%= link_to "カートを空にする", cart_products_path, method: :delete_all, "data-confirm" => "本当に削除しますか？" %>
+        </a>
+        <table>
+          <thead>
+            <tr>
+              <th width = "400">商品名</th>
+              <th width = "100">単価(税込み)</th>
+              <th width = "100">数量</th>
+              <th width = "100">小計</th>
+              <th width = "100"></th>
+            </tr>
+          </thead>
+          <tbody>
+
+            
+            <tr>
+              <td></td>
+              <td></td>
+              <td>
+                <div></div>
+                <a class = "show-icon">
+                  <%= link_to "変更", cart_products_path %>
+                </a>
+              </td>
+              <td></td>
+              <td>
+                <a class = "show-icon">
+                  <%= link_to "削除", cart_products_path, method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                </a>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <div>
+          <a class = "show-icon">
+          <%= link_to "買い物を続ける", home_top_path %>
+          </a>
+        </div>
+        <div>合計金額</div>
+        <div>
+          <a class = "show-icon">
+            <%= link_to "情報入力に進む" %>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
