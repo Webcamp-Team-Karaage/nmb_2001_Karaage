@@ -1,0 +1,38 @@
+<!-- ↓配送先新規登録フォーム -->
+<h2>配送先登録/一覧</h2>
+	<%= form_for(@sipping_address) do |f| %>
+
+	  <h4>郵便番号</h4>
+	  <%= f.text_field :postal_code %>
+
+	  <h4>住所</h4>
+	  <%= f.text_field :address %>
+
+	  <h4>宛名</h4>
+	  <%= f.text_field :address_name %>
+
+	  <%= f.submit '登録する' %>
+  	<% end %>
+
+<!-- 配送先一覧 -->
+<table>
+	 <thead>
+		 <tr>
+			 <th>郵便番号</th>
+			 <th>住所</th>
+			 <th>宛名</th>
+			 <th colspan="2"></th>
+		 </tr>
+	 </thead>
+	 <tbody>
+	   <% @sipping_addresses.each do |sipping_address| %>
+		 <tr>
+			 <td><%= sipping_address.postal_code %></td>
+			 <td><%= sipping_address.address %></td>
+			 <td><%= sipping_address.address_name %></td>
+			 <th><%= link_to "編集する", edit_sipping_address_path(sipping_address.id) %></th>
+			 <th><%= link_to "削除する", sipping_address_path(sipping_address.id), method: :delete, "data-confirm" => "Are you sure?" %></th>
+		 </tr>
+	   <% end %>
+	 </tbody>
+ </table>
