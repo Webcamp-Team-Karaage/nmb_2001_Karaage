@@ -3,7 +3,12 @@
     <%= form_for(@genre ,url: admin_genres_path) do |f| %>
         <%= f.label :name, "ジャンル" %>
         <%= f.text_field :name%>
-        <%=f.submit "作成" %>
+        
+        <%= f.radio_button :status, :"true",{value: :true} %>
+        <%= f.label :status,"有効" %>
+        <%= f.radio_button :status, :"false",{value: :false} %>
+        <%= f.label :status,"無効" %>
+        <%=f.submit "追加する" %>
     <%end%>
 
 
@@ -12,6 +17,7 @@
         <tr>
             <td><%= genre.name %></td>
             <td><%= genre.status%></td>
+            <td><%= link_to "編集する",edit_admin_genre_path(genre.id) %></td>
         </tr>
     <%end%>
 </table>

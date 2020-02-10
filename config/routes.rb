@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
 
 
+  get 'admin_products/new'
+  get 'admin_products/index'
+  get 'admin_products/create'
+  get 'admin_products/show'
+  get 'admin_products/edit'
+  get 'admin_products/update'
+  get 'new/create'
+  get 'new/show'
+  get 'new/edit'
+  get 'new/update'
   # 会員ログイン・サインインのコントローラとして会員用作成したコントローラを指定
     devise_for :members, controllers: {
         sessions:      'members/sessions',
