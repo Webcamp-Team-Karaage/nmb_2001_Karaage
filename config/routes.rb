@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-<
+
 
   # 会員ログイン・サインインのコントローラとして会員用作成したコントローラを指定
     devise_for :members, controllers: {
