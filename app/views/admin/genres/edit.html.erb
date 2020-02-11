@@ -1,0 +1,10 @@
+<%= form_for(@genre ,url: admin_genre_path) do |f| %>
+    <%= f.label :name, "ジャンル" %>
+    <%= f.text_field :name%>
+    
+    <%= f.radio_button :status, :"true",{value: :true} %>
+    <%= f.label :status,"有効" %>
+    <%= f.radio_button :status, :"false",{value: :false} %>
+    <%= f.label :status,"無効" %>
+    <%=f.submit "変更を保存する" %>
+<%end%>

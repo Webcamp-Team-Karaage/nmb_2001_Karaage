@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+
+  namespace :admin do
+    get 'genres/products'
+  end
   get 'admins/top'
   # 管理者ログイン・サインインのコントローラとして管理者用作成したコントローラを指定
     devise_for :admins, controllers: {
@@ -7,6 +11,19 @@ Rails.application.routes.draw do
       passwords:     'admins/passwords',
       registrations: 'admins/registrations'
     }
+
+
+  get 'admin_products/new'
+  get 'admin_products/index'
+  get 'admin_products/create'
+  get 'admin_products/show'
+  get 'admin_products/edit'
+  get 'admin_products/update'
+  get 'new/create'
+  get 'new/show'
+  get 'new/edit'
+  get 'new/update'
+
   # 会員ログイン・サインインのコントローラとして会員用作成したコントローラを指定
     devise_for :members, controllers: {
         sessions:      'members/sessions',
@@ -18,6 +35,7 @@ Rails.application.routes.draw do
   get 'members/edit'
   get 'members/update'
   # devise_for :members
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "homes#top"
 
