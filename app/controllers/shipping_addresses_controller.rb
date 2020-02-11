@@ -13,7 +13,7 @@ class ShippingAddressesController < ApplicationController
 		if @shipping_address.save
 			redirect_to shipping_addresses_path
 		else
-			@shipping_addresses = ShippingAaddress.all
+			@shipping_addresses = ShippingAddress.all
 			render :index
 		end
 	end
