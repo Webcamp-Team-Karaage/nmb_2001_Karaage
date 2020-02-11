@@ -1,4 +1,4 @@
-<!-- ↓配送先新規登録フォーム -->
+<!-- 配送先新規登録フォーム -->
 <h2>配送先登録/一覧</h2>
 	<%= form_for(@shipping_address) do |f| %>
 
@@ -13,6 +13,16 @@
 
 	  <%= f.submit '登録する' %>
   	<% end %>
+
+<!-- ↓空欄エラー表示 -->
+	<% if @shipping_address.errors.any? %>
+		<h2><%= @shipping_address.errors.count %>errorです。</h2>
+    	<ul>
+      		<% @shipping_address.errors.full_messages.each do |message| %>
+        		<li><%= message %></li>
+      		<% end %>
+    	</ul>
+	<% end %>
 
 <!-- 配送先一覧 -->
 <table>

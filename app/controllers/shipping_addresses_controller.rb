@@ -7,12 +7,30 @@ class ShippingAddressesController < ApplicationController
 
 	def create
 		@shipping_address = ShippingAddress.new(shipping_address_params)
+		# @shipping_address.member_id = current_member.id
 		@shipping_address.save
-		# redirect_to shipping_address_path(@shipping_address)
+		redirect_to shipping_addresses_path
 		# else
 			# @shipping_addresses = ShippingAaddress.all
-			# render :shipping_address
+			# @member = current_member
+			# render :index
 		# end
+	end
+
+	def edit
+		@shipping_address = ShippingAddress.find(params[:id])
+	end
+
+	def update
+		@shipping_address = ShippingAddress.find(params[:id])
+		@shipping_address.update(shipping_address_params)
+		redirect_to shipping_addresses_path
+	end
+
+	def destroy
+		shipping_address = ShippingAddress.find(params[:id])
+		shipping_address.destroy
+		redirect_to shipping_addresses_path
 	end
 
 	private
