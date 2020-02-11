@@ -1,22 +1,22 @@
 class ShippingAddressesController < ApplicationController
 
 	def index
-		@sipping_addresses = Sippin_gaddress.all
-		@sipping_address = Sipping_address.new
+		@shipping_addresses = ShippingAddress.all
+		@shipping_address = ShippingAddress.new
 	end
 
 	def create
-		@sipping_address = Book.new(sipping_address_params)
-		if @sipping_address.save
-			redirect_to sipping_address_path(@sipping_address)
-		else
-			@sipping_addresses = Sippin_gaddress.all
-			render :index
-		end
+		@shipping_address = ShippingAddress.new(shipping_address_params)
+		@shipping_address.save
+		# redirect_to shipping_address_path(@shipping_address)
+		# else
+			# @shipping_addresses = ShippingAaddress.all
+			# render :shipping_address
+		# end
 	end
 
 	private
-	def sipping_address_params
-		params.require(:sipping_address).permit(:postal_code, :address, :address_name)
+	def shipping_address_params
+		params.require(:shipping_address).permit(:postal_code, :address, :address_name)
 	end
 end
