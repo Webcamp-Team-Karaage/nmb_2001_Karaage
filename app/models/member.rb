@@ -6,4 +6,6 @@ class Member < ApplicationRecord
 	has_many :shipping_addresses, dependent: :destroy
 	has_many :orders #memberを削除した時に注文履歴は消えてはいけないのでdependent: :destroyは書いてないです
 	has_many :cart_products, dependent: :destroy
+
+	enum status: {有効: 0, 退会済: 1}
 end
