@@ -1,19 +1,21 @@
 class CartProductsController < ApplicationController
 	def index
-		@cart_products = Cart_Product.all #商品全件載せる
+		@cart_product = CartProduct.new #product単数が必要でいれた
+		@cart_products = CartProduct.all #商品全件載せる
 	end
 	def create
-		@cart_product = Cart_Product.new(cart_product_params)#
+		@cart_product = CartProduct.new(cart_product_params)#
+		@member_id = current_member.id
 		@cart_product.save
 		redirect_to cart_products_path
 	end
 	def update
-		@cart_product = Cart_Product.find(cart_product_params[:id])#
+		@cart_product = CartProduct.find(cart_product_params[:id])#
 		@cart_product.update(cart_product_params)
 		redirect_to cart_products_path
 	end
 	def destroy
-		@cart_product = Cart_Product.find(params[:id])
+		@cart_product = CartProduct.find(params[:id])
 		@cart_product.destroy
 		#redirect_to cart_products_path
 	end
