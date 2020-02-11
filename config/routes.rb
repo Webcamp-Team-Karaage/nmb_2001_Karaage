@@ -50,10 +50,12 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :show, :new, :create]
   resources :products, only: [:index, :show]
 
-  resources :admin_members, only: [:index, :show, :edit, :update]
-  resources :admin_orders, only: [:index, :show, :update]
-  resources :admin_order_products, only: [:update]
-  resources :admin_products, only: [:index, :new, :create, :show, :edit, :update]
-  resources :admin_genres, only: [:index, :create, :edit, :update]
+  namespace :admin do
+    resources :members, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:index, :show, :update]
+    resources :order_products, only: [:update]
+    resources :products, only: [:index, :new, :create, :show, :edit, :update]
+    resources :genres, only: [:index, :create, :edit, :update]
+  end
 
 end
