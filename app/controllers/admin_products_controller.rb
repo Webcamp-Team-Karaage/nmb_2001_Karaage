@@ -2,10 +2,8 @@ class AdminProductsController < ApplicationController
   def new
     @admin_product = Product.new
 
-    genres = Genre.all
-    genres.each do |genre|
-       @genre_names = [genre.name]
-    end
+    @genres = Genre.all
+    
     
   end
 

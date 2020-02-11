@@ -5,16 +5,16 @@
 <%end%>
 
 <%= form_for(@admin_product ,url: admin_products_path) do |f| %>
-    
+
     <%= f.label :name, "商品名" %>
     <%= f.text_field :name%></br>
     <%= f.label :text, "商品説明" %>
     <%= f.text_area :text %></br>
-    
+
     <%= f.label :genre_id, "ジャンル" %>
-    
-    <%= f.select :genre_id,[@genre_name]%></br>
-    
+
+    <%= f.collection_select(:name, @genres, :id, :name)　%>
+
     <%= f.label :price, "税抜き価格" %>
     <%= f.text_field :price%></br>
     <%= f.label :status, "販売ステータス" %>
