@@ -3,7 +3,9 @@ class AdminProductsController < ApplicationController
     @admin_product = Product.new
 
     genres = Genre.all
-    
+    genres.each do |genre|
+       @genre_names = [genre.name]
+    end
     
   end
 
