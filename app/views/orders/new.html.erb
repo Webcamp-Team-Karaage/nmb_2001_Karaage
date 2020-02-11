@@ -1,0 +1,63 @@
+<div class="body">
+  <div class="container">
+    <div class="row">
+      <!-- 注文情報確認ページ -->
+      <div>
+        <h4>注文情報確認</h4>
+
+        <!-- 商品名table -->
+        <table>
+          <thead>
+            <tr>
+              <th width = "400">商品名</th>
+              <th width = "100">単価(税込み)</th>
+              <th width = "100">数量</th>
+              <th width = "100">小計</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 送料table -->
+        <table>
+          <tr>
+            <td>送料</td>
+            <td>800</td>
+          </tr>
+          <tr>
+            <td>商品合計</td>
+            <td>1,760</td>
+          </tr>
+          <tr>
+            <td>請求金額</td>
+            <td>2,560</td>
+          </tr>
+        </table>
+
+
+
+        <div>
+          <h4>支払方法</h4>
+        </div>
+        <div>
+          <h4>お届け先</h4>
+        </div>
+
+        <div>
+          <a class = "show-icon">
+          <%= link_to "購入を確定する", orders_thanks_path %>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

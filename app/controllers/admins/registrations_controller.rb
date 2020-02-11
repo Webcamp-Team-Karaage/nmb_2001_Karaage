@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 class Admins::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    redirect_to admins_top_path if admin_signed_in?
+    super
+  end
 
   # POST /resource
   # def create
@@ -37,8 +38,12 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
-
-  # protected
+  def after_sign_up_path_for(resource)
+    admin=current_admin
+    admins_top_path
+  end
+  
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params

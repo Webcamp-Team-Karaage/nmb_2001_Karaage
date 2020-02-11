@@ -1,2 +1,14 @@
-<h1>AdminProducts#index</h1>
-<p>Find me in app/views/admin_products/index.html.erb</p>
+<table border="1">
+    <% @admin_products.each do |admin_product|%>
+        <tr>
+            <td><%=admin_product.id%></td>  
+        
+            <td><%=admin_product.name%></td>
+        
+            <td><%=admin_product.price%></td>
+        
+            <td><%=admin_product.genre.name%></td>
+        
+            <td><%=admin_product.status%></td>
+        </tr>
+    <%end%>
