@@ -1,3 +1,11 @@
+<h3>マイページ</h3>
+
+<h4>登録情報変更</h4>
+<%= link_to "編集する", edit_member_path(current_member) %>
+<%= link_to "パスワードを変更する", new_member_password_path(current_member) %>
+
+
+
 <h4>姓</h4>
 <%= @member.first_name %>
 <h4>名</h4>
@@ -14,3 +22,16 @@
 <%= @member.phone %>
 <h4>メールアドレス</h4>
 <%= @member.email %>
+<!-- ステータス確認用（後々消します） -->
+<h4>ステータス</h4>
+<% if @member.status == 0 %>
+有効
+<% else %>
+退会
+<% end %>
+<!--  -->
+
+<h4>配送先</h4>
+<%= link_to "一覧を見る", shipping_addresses_path %>
+<h4>注文履歴</h4>
+<%= link_to "一覧を見る", orders_path %>
