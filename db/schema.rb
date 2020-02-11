@@ -24,10 +24,26 @@ ActiveRecord::Schema.define(version: 2020_02_11_075554) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+
+  create_table "admins_genres", force: :cascade do |t|
+    t.string "name"
+    t.boolean "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+
   create_table "cart_products", force: :cascade do |t|
     t.integer "member_id"
     t.integer "product_id"
     t.integer "count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.boolean "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -86,9 +102,9 @@ ActiveRecord::Schema.define(version: 2020_02_11_075554) do
     t.text "text"
     t.integer "price"
     t.integer "status"
-    t.string "product_image_id"
+    t.string "products_image_id"
     t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "update_at"
   end
 
   create_table "shipping_addresses", force: :cascade do |t|

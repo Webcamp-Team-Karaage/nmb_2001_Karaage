@@ -6,7 +6,9 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.text :text
       t.integer :price
       t.integer :status
-      t.string :product_image_id
+      t.string :products_image_id
+      t.datetime :created_at
+      t.datetime :update_at
 
       t.timestamps
     end
