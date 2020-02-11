@@ -1,5 +1,7 @@
 class ShippingAddressesController < ApplicationController
 
+	before_action :authenticate_member!
+
 	def index
 		@shipping_addresses = ShippingAddress.all
 		@shipping_address = ShippingAddress.new
@@ -7,14 +9,13 @@ class ShippingAddressesController < ApplicationController
 
 	def create
 		@shipping_address = ShippingAddress.new(shipping_address_params)
-		# @shipping_address.member_id = current_member.id
-		@shipping_address.save
-		redirect_to shipping_addresses_path
-		# else
-			# @shipping_addresses = ShippingAaddress.all
-			# @member = current_member
-			# render :index
-		# end
+		@shipping_address.member_id = current_member.id
+		if @shipping_address.save
+			redirect_to shipping_addresses_path
+		else
+			@shipping_addresses = ShippingAaddress.all
+			render :index
+		end
 	end
 
 	def edit
