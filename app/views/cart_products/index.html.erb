@@ -24,7 +24,9 @@
               <td>
 
                 <div>
-                  <!-- form_for予定 -->
+                  <%= form_for(@cart_product) do |f| %>
+                    <%= f.text_field :count %>
+                  <% end %>
 
                 </div>
                 
@@ -60,11 +62,3 @@
     </div>
   </div>
 </div>
-
-
-
-<!--
- <%= form_for(@cart_product) do |f| %>
-                    <%= f.text_field :count %>
-                  <% end %>
--->
