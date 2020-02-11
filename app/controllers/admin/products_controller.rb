@@ -1,21 +1,22 @@
-class AdminProductsController < ApplicationController
+class Admin::ProductsController < ApplicationController
   def new
     @admin_product = Product.new
 
     @genres = Genre.all
-    
-    
+
+
   end
 
   def index
     @admin_products = Product.all
-    
+    @genre = @admin_products.genre
+    puts @genre
   end
 
   def create
     @admin_product = Product.new(params_admin_product)
     @admin_product.save!
-    
+
     redirect_to admin_product_path(@admin_product)
   end
 
@@ -38,5 +39,5 @@ class AdminProductsController < ApplicationController
   def params_admin_product
     params.require(:product).permit(:name, :text, :genre_id, :price,:status,:products_image_id)
   end
-  
+
 end

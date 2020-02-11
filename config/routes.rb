@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  namespace :admin do
+    get 'genres/products'
+  end
   get 'admins/top'
   # 管理者ログイン・サインインのコントローラとして管理者用作成したコントローラを指定
     devise_for :admins, controllers: {

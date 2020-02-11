@@ -13,11 +13,12 @@
 
     <%= f.label :genre_id, "ジャンル" %>
 
-    <%= f.collection_select(:name, @genres, :id, :name)　%>
+    <%= f.collection_select :genre_id, @genres, :id, :name %>
 
     <%= f.label :price, "税抜き価格" %>
     <%= f.text_field :price%></br>
     <%= f.label :status, "販売ステータス" %>
-    <%= f.select :status,[[1],[2]]%></br>
+
+    <%= f.select :status, Product.statuses.keys{}%></br>
     <%= f.submit "新規登録"%>
 <%end%>
