@@ -3,6 +3,10 @@ class OrdersController < ApplicationController
 		@order = Order.new
 	end
 	def new
+		order = Order.new
+		#@order = Order.find(order_params[:id])
+		#order.save
+		#redirect_to orders_thanks_path
 	end
 	def create
 		order = Order.new(order_params)
