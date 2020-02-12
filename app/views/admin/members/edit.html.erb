@@ -1,0 +1,26 @@
+<h4>登録情報編集</h4>
+
+<%= form_for(@member,:url => {controller: "admin/members", :action => :update}) do |f| %>
+
+<h5>会員ID</h5>
+<%= @member.id %>
+<h5>氏名</h5>
+<%= f.text_field :first_name %>
+<%= f.text_field :last_name %>
+<h5>カナ</h5>
+<%= f.text_field :first_name_kana %>
+<%= f.text_field :last_name_kana %>
+<h5>郵便番号</h5>
+<%= f.text_field :postal_code %>
+<h5>電話番号</h5>
+<%= f.text_field :phone %>
+<h5>メールアドレス</h5>
+<%= f.email_field :email %>
+<h5>会員ステータス</h5>
+<label><%= f.radio_button :status, '有効' %>有効</label>
+<label><%= f.radio_button :status, '退会済' %>退会済み</label>
+<br>
+<%= f.submit "変更を保存する" %>
+
+
+<% end %>
