@@ -7,6 +7,7 @@
 <h4>氏名</h4>
 <%= @member.first_name %>
 <%= @member.last_name %>
+<%= @member.status %>会員
 
 <h4>フリガナ</h4>
 <%= @member.first_name_kana %>
@@ -19,8 +20,6 @@
 <%= @member.phone %>
 <h4>メールアドレス</h4>
 <%= @member.email %>
-
-<%= link_to "編集する", edit_member_path(@member.id) %>
-
-<h4>注文履歴</h4>
-<%= link_to "一覧を見る", orders_path %>
+<br>
+<%= link_to "編集する", edit_admin_member_path(@member.id) %>
+<%= link_to "注文履歴一覧を見る", orders_path %>
