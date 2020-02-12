@@ -7,36 +7,35 @@
         <a class = "show-icon">
           <%= link_to "カートを空にする", cart_products_path, method: :delete_all, "data-confirm" => "本当に削除しますか？" %>
         </a>
-        <table>
+        <table class = "table table-hober table-inverse">
           <thead>
             <tr>
-              <th width = "400">商品名</th>
-              <th width = "100">単価(税込み)</th>
+              <th width = "300">商品名</th>
+              <th width = "100">単価(税込)</th>
               <th width = "100">数量</th>
               <th width = "100">小計</th>
               <th width = "100"></th>
             </tr>
           </thead>
           <tbody>
-
-            
             <tr>
-              <td></td>
-              <td></td>
+              <td>イチゴケーキ</td>
+              <td>1,100</td>
               <td>
-                <div></div>
-                <a class = "show-icon">
-                  <%= link_to "変更", cart_products_path %>
-                </a>
+                <%= form_for(@cart_product) do |f| %>
+                  <%= f.text_field :count %>
+                  <a class = "show-icon">
+                    <%= link_to "変更", cart_products_path %>
+                  </a>
+                <% end %>
               </td>
-              <td></td>
+              <td>1,100</td>
               <td>
                 <a class = "show-icon">
-                  <%= link_to "削除", cart_products_path, method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                  <%= link_to "削除する", cart_products_path, method: :delete, "data-confirm" => "本当に削除しますか？" %>
                 </a>
               </td>
             </tr>
-
           </tbody>
         </table>
 
@@ -45,8 +44,13 @@
           <%= link_to "買い物を続ける", root_path %>
           </a>
         </div>
-        <div>合計金額</div>
-        <div>
+        <table class = "table table-hober table-inverse">
+          <tr>
+            <th>合計金額</th>
+            <td>1,760</td>
+          </tr>
+        </table>
+    <div>
           <a class = "show-icon">
             <%= link_to "情報入力に進む" %>
           </a>
