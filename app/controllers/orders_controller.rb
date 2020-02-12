@@ -3,7 +3,8 @@ class OrdersController < ApplicationController
 		@order = Order.new
 	end
 	def new
-		order = Order.new
+		@order = Order.new
+		@orders = Order.all
 		#@order = Order.find(order_params[:id])
 		#order.save
 		#redirect_to orders_thanks_path

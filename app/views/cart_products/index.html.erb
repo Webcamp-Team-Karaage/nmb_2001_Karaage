@@ -18,9 +18,13 @@
             </tr>
           </thead>
           <tbody>
+
+            <% @cart_products.each do |cart_products| %>
             <tr>
-              <td>イチゴケーキ</td>
-              <td>1,100</td>
+              <td><%= link_to user_path(book.user) do %>
+                    <%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %><br>
+                  <% end %><%= cart_product.name %>イチゴケーキ</td>
+              <td><%= cart_product.price_tax %>1,100</td>
               <td>
                 <%= form_for(@cart_product) do |f| %>
                   <%= f.text_field :count %>
@@ -36,6 +40,8 @@
                 </a>
               </td>
             </tr>
+            <% end %>
+
           </tbody>
         </table>
 
@@ -52,7 +58,7 @@
         </table>
     <div>
           <a class = "show-icon">
-            <%= link_to "情報入力に進む" %>
+            <%= link_to "情報入力に進む", input_path(current_member) %>
           </a>
         </div>
 

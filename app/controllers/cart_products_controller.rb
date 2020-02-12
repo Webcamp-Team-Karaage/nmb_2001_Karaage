@@ -2,6 +2,7 @@ class CartProductsController < ApplicationController
 	def index
 		@cart_product = CartProduct.new #product単数が必要でいれた
 		@cart_products = CartProduct.all #商品全件載せる
+		@member = current_member
 	end
 	def create
 		@cart_product = CartProduct.new(cart_product_params)#
