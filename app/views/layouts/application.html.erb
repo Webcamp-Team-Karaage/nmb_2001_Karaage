@@ -10,12 +10,38 @@
   </head>
 
   <body>
-    <header>
-            <ul>
-            <li><%= link_to "トップページ" %>
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <a class="sitelogo" href="/">
+            <%= image_tag('logo.png') %>
+          </a>
+          <ul class="navber-right">
+            <!-- 会員ログイン中 -->
+            <% if member_signed_in? %>
+            <p>こんにちは<%= current_member.first_name %><%= current_member.last_name %>さん</p>
+            <li><%= link_to "トップページ", root_path %></li>
+            <li><%= link_to "アバウト", home_about_path %></li>
+            <li><%= link_to "カート" %></li>
+            <li><%= link_to "マイページ", member_path(current_member) %></li>
             <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete%></li>
+            <!-- 管理者ログイン中 -->
+            <% elsif admin_signed_in? %>
+            <p>こんにちは<%= current_admin.email %>さん</p>
+            <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
+            <li><%= link_to "会員一覧", admin_members_path %></li>
+            <li><%= link_to "注文履歴一覧", admin_orders_path %></li>
+            <li><%= link_to "商品一覧", admin_products_path %></li>
             <li><%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete%></li>
+            <!-- ログアウト中 -->
+            <% else %>
+            <li><%= link_to "トップページ", root_path %></li>
+            <li><%= link_to "アバウト", home_about_path %></li>
+            <li><%= link_to "会員登録", new_member_registration_path %></li>
+            <li><%= link_to "ログイン", member_session_path, method: :delete%></li>
+            <% end %>
           </ul>
+        </nav>
     </header>
     <%= yield %>
   </body>
