@@ -4,13 +4,16 @@
 <h2>商品一覧 (全X件)</h2>
 <div>
   <% @products.each do |product| %>
-        <div>
-          <%= link_to product_path(product.id) do %>
-            <%= attachment_image_tag product, :products_image, :
-          <% end %>
-        </div>
-        <div>商品名</div>
-        <div>価格</div>
+        <ul>
+          <li>
+            <%= link_to product_path(product.id) do %>
+              <%= attachment_image_tag product, :product_image, :fill, 100, 120, format: 'jpeg' %>
+            <% end %>
+          </li>
+          <li><%= product.name %></li>
+          <li><%= product.price %></li>
+          <li><%= product.genre.name %></li>
+        </ul>
   <% end %>
 </div>
 
