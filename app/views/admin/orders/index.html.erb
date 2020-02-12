@@ -1,0 +1,32 @@
+<h2>注文一覧画面</h2>
+<table>
+	<thead>
+		<tr>
+			<th>購入日時</th>
+			<th>購入者</th>
+			<th>注文個数</th>
+			<th>注文ステータス</th>
+		</tr>
+	</thead>
+	<tbody>
+    <% @admin_order_products.each do |admin_order_product| %>
+        <tr>
+            <td>
+            	<!-- 購入日時（リンク先は注文履歴詳細） -->
+            	<%= link_to admin_order_path(order.id) do %>
+            		<%= order_product.created_at %>
+            	<% end%>
+            </td>
+            <td>
+            	<!-- 購入者フルネーム -->
+            	<%= order.member.first_name %>
+            	<%= order.member.last_name %>
+            </td>
+            	<!-- 注文商品の個数 -->
+            <td><%= order.count %></td>
+            	<!-- 注文ステータス -->
+            <td><%= order_product.statas %></td>
+        </tr>
+    <%end%>
+	</tbody>
+</table>
