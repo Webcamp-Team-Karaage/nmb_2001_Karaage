@@ -23,7 +23,7 @@
             	<%= order.member.last_name %>
             </td>
             	<!-- 注文商品の個数 -->
-            <td><%= order.count %></td>
+            <td><%= Order.all.sum(:count) %></td>
             	<!-- 注文ステータス -->
             <td><%= order_product.statas %></td>
         </tr>
