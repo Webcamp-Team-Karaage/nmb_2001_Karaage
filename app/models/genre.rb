@@ -3,6 +3,4 @@ class Genre < ApplicationRecord
     accepts_attachments_for :products, attachment: :product_image
     validates :name, presence: true
     validates :status,  inclusion: {in: [true, false]}
-
-    
 end
