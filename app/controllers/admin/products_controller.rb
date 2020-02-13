@@ -2,22 +2,25 @@ class Admin::ProductsController < ApplicationController
   def new
     @admin_product = Product.new
 
-    @genres = Genre.all
+    @genres = Genre.where(status: 'true')
 
 
   end
 
   def index
     @admin_products = Product.all
-    @genre = @admin_products.genre
-    puts @genre
+    
+    
   end
 
   def create
+    @admin_products = Product.all
     @admin_product = Product.new(params_admin_product)
-    @admin_product.save!
-
-    redirect_to admin_product_path(@admin_product)
+    if @admin_product.save!
+      redirect_to admin_product_path(@admin_product)
+    else
+      render :new
+    end
   end
 
   def show
@@ -25,19 +28,26 @@ class Admin::ProductsController < ApplicationController
   end
 
   def edit
+    @genres = Genre.where(status: 'true')
+
     @admin_product = Product.find(params[:id])
   end
 
   def update
-    adomin_product = Product.find(params_admin_product)
-    adomin_product.update
-    redirect_to admin_product_path
+    
+    @admin_product = Product.find(params[:id])
+    @admin_product.update(params_admin_product)
+    if @admin_product.save
+      redirect_to admin_product_path
+    else
+      render :edit
+    end
   end
 
   private
 
   def params_admin_product
-    params.require(:product).permit(:name, :text, :genre_id, :price,:status,:products_image_id)
+    params.require(:product).permit(:name, :text, :genre_id, :price,:status,:product_image)
   end
 
 end
