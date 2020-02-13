@@ -1,8 +1,9 @@
+<div class = "">
 <h1>商品　新規登録画面</h1>
 
 
 <%= form_for(@admin_product ,url: admin_products_path) do |f| %>
-    
+
     <%= f.attachment_field :product_image%>
     <%= f.label :name, "商品名" %>
     <%= f.text_field :name%></br>
