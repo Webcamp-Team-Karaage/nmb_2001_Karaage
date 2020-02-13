@@ -42,15 +42,16 @@
         </table>
 
 
-
-        <section>
-          <h4>支払方法</h4>
-          
-          <%=  %>
+        <% @orders.each do |order| %>
+          <section>
+            <h4>支払方法</h4>
+            <%= order.payment %>
         </section>
         <section>
           <h4>お届け先</h4>
+          <%= order.address %>
         </section>
+        <% end %>
 
         <div>
           <a class = "show-icon">
