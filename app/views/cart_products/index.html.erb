@@ -18,9 +18,10 @@
             </tr>
           </thead>
           <tbody>
+            <% @admin_products.each do |admin_product| %>
             <tr>
-              <td>イチゴケーキ</td>
-              <td>1,100</td>
+              <td><%= attachment_image_tag admin_product, :product_image,format:'jpeg',size: "50x50" %><%= admin_product.name %></td>
+              <td><%= admin_product.price %></td>
               <td>
                 <%= form_for(@cart_product) do |f| %>
                   <%= f.text_field :count %>
@@ -36,6 +37,8 @@
                 </a>
               </td>
             </tr>
+            <% end %>
+
           </tbody>
         </table>
 
