@@ -1,36 +1,77 @@
-<h3>マイページ</h3>
+<div class="row">
 
-<h4>登録情報変更</h4>
-<%= link_to "編集する", edit_member_path(current_member) %>
-<%= link_to "パスワードを変更する", new_member_password_path(current_member) %>
+	<div class="col-xs-offset-1 col-xs-9">
+		<h1 class="page-title">マイページ</h1>
+	</div>
+</div>
 
+<div class="row">
+	<div class="col-xs-offset-1 col-xs-9">
 
-<h4>姓</h4>
-<%= @member.first_name %>
-<h4>名</h4>
-<%= @member.last_name %>
-<h4>姓ｶﾅ</h4>
-<%= @member.first_name_kana %>
-<h4>名ｶﾅ</h4>
-<%= @member.last_name_kana %>
-<h4>郵便番号</h4>
-<%= @member.postal_code %>
-<h4>住所</h4>
-<%= @member.address %>
-<h4>電話番号</h4>
-<%= @member.phone %>
-<h4>メールアドレス</h4>
-<%= @member.email %>
-<!-- ステータス確認用（後々消します） -->
-<h4>ステータス</h4>
-<% if @member.status == 0 %>
-有効
-<% else %>
-退会
-<% end %>
-<!--  -->
+		<div class="page-info"><h2>登録情報</h2></div>
 
-<h4>配送先</h4>
-<%= link_to "一覧を見る", shipping_addresses_path %>
-<h4>注文履歴</h4>
-<%= link_to "一覧を見る", orders_path %>
+		<div class="member-btn">
+			<%= link_to "編集する", edit_member_path(current_member),class: "btn btn-info" %>
+			<%= link_to "パスワードを変更する", new_member_password_path(current_member),class: "btn btn-warning" %>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-offset-1 col-xs-9">
+
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th class="active">氏名</th>
+				<td><%= @member.first_name %><%= @member.last_name %></td>
+			</tr>
+			<tr>
+				<th class="active">カナ</th>
+				<td><%= @member.first_name_kana %><%= @member.last_name_kana %></td>
+			</tr>
+			<tr>
+				<th class="active">郵便番号</th>
+				<td><%= @member.postal_code %></td>
+			</tr>
+			<tr>
+				<th class="active">住所</th>
+				<td><%= @member.address %></td>
+			</tr>
+			<tr>
+				<th class="active">電話番号</th>
+				<td><%= @member.phone %></td>
+			</tr>
+			<tr>
+				<th class="active">メールアドレス</th>
+				<td><%= @member.email %></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-offset-1 col-xs-9">
+		<table class="member-menu" width="200">
+			<thead>
+				<tr>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th><h4>配送先</h4></th>
+					<td><%= link_to "一覧を見る", shipping_addresses_path,class: "btn btn-info" %></td>
+				</tr>
+				<tr>
+					<th><h4>注文履歴</h4></th>
+					<td><%= link_to "一覧を見る", orders_path,class: "btn btn-info" %></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

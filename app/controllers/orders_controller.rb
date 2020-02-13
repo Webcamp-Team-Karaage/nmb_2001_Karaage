@@ -5,7 +5,11 @@ class OrdersController < ApplicationController
 		@shipping_addresses = ShippingAddress.all
 	end
 	def new
+<<<<<<< HEAD
 		@order = Order.new
+=======
+		order = Order.new
+>>>>>>> 6c8281cddfb65eea788462d40d91eb3be893974b
 		@orders = Order.all
 		#@order = Order.find(order_params[:id])
 		#order.save
