@@ -7,8 +7,7 @@ class ProductsController < ApplicationController
 		@cart_product = CartProduct.new
 		@admin_product = Product.find(params[:id])
 
-		@cart_product.save #個数を保存したいのだが
-		#redirect_to cart_products_path
+		#@cart_product.save #個数を保存したいのだが
 	end
 
 	private
