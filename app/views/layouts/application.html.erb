@@ -19,7 +19,7 @@
           <ul class="navber-right">
             <!-- 会員ログイン中 -->
             <% if member_signed_in? %>
-            <p>こんにちは<%= current_member.first_name %><%= current_member.last_name %>さん</p>
+            <li class="login-name">こんにちは<%= current_member.first_name %><%= current_member.last_name %>さん</li>
             <li><%= link_to "トップページ", root_path %></li>
             <li><%= link_to "アバウト", home_about_path %></li>
             <li><%= link_to "カート", cart_products_path %></li>
@@ -27,7 +27,7 @@
             <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete%></li>
             <!-- 管理者ログイン中 -->
             <% elsif admin_signed_in? %>
-            <p>こんにちは<%= current_admin.email %>さん</p>
+            <li class="login-name">こんにちは<%= current_admin.email %>さん</li>
             <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
             <li><%= link_to "会員一覧", admin_members_path %></li>
             <li><%= link_to "注文履歴一覧", admin_orders_path %></li>
@@ -47,7 +47,7 @@
    <footer class="footer">
       <div class="container">
         <div class="row">
-          <div class="col-xs-2">
+          <div class="col-xs-9">
               <h4>Link</h4>
               <ul>
                 <li>
@@ -58,10 +58,8 @@
                 </li>
               </ul>
           </div>
-          <div class="col-xs-8">
-          </div>
-          <div class="inc col-xs-2">
-            <p>NaganoCake Inc.</p>
+          <div class="inc col-xs-3">
+            <p class="inc-name">NaganoCake Inc.</p>
           </div>
         </div>
       </div>
