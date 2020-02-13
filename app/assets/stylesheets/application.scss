@@ -43,9 +43,12 @@ header{
 
 li{
 	position: relative;
-	display: inline-block;
 	list-style: none;
+}
+
+.navber-right > li{
 	line-height: 60px;
+	display: inline-block;
 }
 
 li a{
@@ -67,4 +70,28 @@ footer{
 	position: absolute;
 	bottom: 0;
 	right: 0;
+	display: block;
+}
+
+.panel-info{
+	margin-top:20px;
+}
+
+.table-sign-up{
+	margin-left: 50px;
+}
+
+table{
+	border-spacing: 10px;
+}
+.member-new{
+	width: 100%;
+	margin: 0 auto;
+}
+.login-name{
+	color:#534438;
+}
+
+.inc-name{
+	text-align: right;
 }
