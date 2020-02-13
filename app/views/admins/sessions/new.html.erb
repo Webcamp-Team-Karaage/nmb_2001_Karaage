@@ -1,15 +1,23 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+<div class="row mail">
+  <div class="col-md-3"></div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-      <%= f.label :email, "メールアドレス", class: "col-md-3" %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-md-9" %>
-      </div>
+    <div class="col-md-2">
+      <%= f.label :email, "メールアドレス" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+    </div>
+</div>
 
-      <div class="field">
-      <%= f.label :password, "パスワード", class: "col-md-3" %>
-      <%= f.password_field :password, autocomplete: "current-password", class: "col-md-9" %>
-      </div>
+<div class="row pass">
+  <div class="col-md-3"></div>
+    <div class="col-md-2">
+      <%= f.label :password, "パスワード" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+    </div>
+</div>
 
   <!-- <% if devise_mapping.rememberable? %> -->
     <!-- <div class="field"> -->
@@ -17,12 +25,9 @@
       <!-- <%= f.label :remember_me %> -->
     <!-- </div> -->
   <!-- <% end %> -->
-
-      <div class="actions">
-      <%= f.submit "ログイン", class: "btn btn-primary" %>
-      </div>
+<div class="row login">
+  <div class="col-md-6"></div>
+      <%= f.submit "ログイン", class: "btn btn-primary btn-lg" %>
     <% end %>
-
- <!-- <%= render "admins/shared/links" %> -->
-  </div>
 </div>
+ <!-- <%= render "admins/shared/links" %> -->
