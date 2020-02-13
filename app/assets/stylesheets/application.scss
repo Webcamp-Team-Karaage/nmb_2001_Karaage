@@ -15,3 +15,56 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+a {
+	text-decoration: none;
+}
+
+header{
+	color: #756660;
+	background-color: #ffead5;
+}
+
+.sitelogo img{
+	height: 60px;
+}
+
+li{
+	position: relative;
+	display: inline-block;
+	list-style: none;
+	line-height: 60px;
+}
+
+li a{
+	color: #756660;
+}
+
+.navber-right{
+	float: right;
+	margin: 0;
+}
+
+footer{
+	color: #756660;
+	background-color: #ffead5;
+	position: relative;
+}
+
+.inc{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
