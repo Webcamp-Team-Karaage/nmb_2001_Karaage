@@ -23,7 +23,7 @@ class CartProductsController < ApplicationController
 		#redirect_to cart_products_path
 	end
 	def destroy_all
-		#@cart_products = CartProduct.all
+		@cart_products = CartProduct.all
 		cart_product.destroy_all
 		#redirect_to cart_products_path
 	end
