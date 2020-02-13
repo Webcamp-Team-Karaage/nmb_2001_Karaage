@@ -1,9 +1,19 @@
-<table border="1">
-    <% @admin_products.each do |admin_product|%>
+<div class = "container">
+  <div class = "row">
+    <h1>商品一覧画面</h1>
+    <table class= "table table-bordered text-center index">
+      <tr>
+        <td>商品ID</td>
+        <td>商品名</td>
+        <td>税抜き価格</td>
+        <td>ジャンル</td>
+        <td>ステータス</td>
+      </tr>
+      <% @admin_products.each do |admin_product|%>
         <tr>
             <td><%=admin_product.id%></td>
 
-            <td><%=admin_product.name%></td>
+            <td><%=link_to admin_product.name,admin_product_path(admin_product)%></td>
 
             <td><%=admin_product.price%></td>
 
@@ -11,4 +21,5 @@
 
             <td><%=admin_product.status%></td>
         </tr>
-    <%end%>
+      <%end%>
+    </table>
