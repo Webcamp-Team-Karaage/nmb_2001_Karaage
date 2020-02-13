@@ -1,13 +1,16 @@
 class ProductsController < ApplicationController
 	def index
-		@products = Product.all #商品全件載せる
+		@admin_products = Product.all
+		@admin_product = Product.new
 	end
 	def show
-		@product = Product.find(product_params[:id])
+		@cart_product = CartProduct.new
+		@admin_product = Product.find(params[:id])
 	end
 
 	private
-	def product_params
-		params.require(:product).permit(:count)
-	end
+	def params_admin_product
+    params.require(:product).permit(:product_image, :name, :text, :price)
+  end
+
 end
