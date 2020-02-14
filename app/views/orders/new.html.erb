@@ -42,6 +42,7 @@
         </table>
 
         <section>
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -61,21 +62,23 @@
           <%= @order.payment %>
         </section><!-- 未選択を省く必要あり -->
 >>>>>>> 3d37c3929563d8fb9128a6632d956285f6f679bc
+=======
+          <h4>支払方法</h4>
+          <%= @order.payment %>
+        </section>
+>>>>>>> fe23d3eeeff92a75ac3878e1f9fbf715c88c48b4
         <section>
           <h4>お届け先</h4>
-        
+          <%= @order.postal_code %>
+          <%= @order.address %>
+          <%= @order.address_name %>
         </section><!-- 未選択を省く必要あり -->
-          
-        
-
         <div>
           <%= form_for(@order) do |f| %>
           <%= f.submit "購入を確定する" %>
           <% end %>
         </div>
-
       </div>
-
     </div>
   </div>
 </div>

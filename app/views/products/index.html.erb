@@ -2,12 +2,17 @@
   <div class="container">
     <div class="row">
       <!-- ジャンル部分テンプレート -->
-      <div class="col-xs-2"></div>
+      <div class="col-xs-2">
+        <p class="genre-search-title">ジャンル検索</p>
+        <% @genres.each do |genre| %>
+        <%= link_to genre.name,products_path(id: genre.id) %><br>
+        <% end %></div>
 
       <!-- 商品一覧ページ -->
       <div class="col-xs-10">
-        <h2>ケーキ (全X件)</h2>
+        <h2>ケーキ (全<%= @products.count %>件)</h2>
         <div>
+<<<<<<< HEAD
 <<<<<<< HEAD
           <% @products.each do |product| %>
             <ul>
@@ -16,6 +21,9 @@
                 <% end %>
 =======
           <% @admin_products.each do |admin_product| %>
+=======
+          <% @products.each do |admin_product| %>
+>>>>>>> fe23d3eeeff92a75ac3878e1f9fbf715c88c48b4
             <ul>
               <li>
                 <div>
