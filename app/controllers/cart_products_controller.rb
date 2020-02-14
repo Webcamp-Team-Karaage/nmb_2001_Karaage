@@ -4,9 +4,12 @@ class CartProductsController < ApplicationController
 		@cart_products = CartProduct.all #商品全件載せる
 	end
 	def create
-		@cart_product = CartProduct.new(cart_product_params)#
-		@member_id = current_member.id
-		@cart_product.save
+
+
+		@cart_product = CartProduct.new(cart_product_params)
+		@cart_product =  CartProduct.new(member_id:current_member.id, product_id:cart_products.id)
+		@cart_product.save!
+
 		redirect_to cart_products_path
 	end
 	def update
@@ -27,6 +30,6 @@ class CartProductsController < ApplicationController
 
 	private
 	def cart_product_params
-		params.require(:cart_product).permit(:count)
+		params.require(:cart_product).permit(:count,:product_id)
 	end
 end

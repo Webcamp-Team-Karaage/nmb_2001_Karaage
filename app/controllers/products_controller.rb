@@ -7,10 +7,15 @@ class ProductsController < ApplicationController
 		@cart_product = CartProduct.new
 		@admin_product = Product.find(params[:id])
 	end
-
+	def create
+		@product = Product.find(params[:id])
+		@cart_product = CartProduct.new(cart_product_params)
+		@cart_product =  CartProduct.new(member_id:current_member.id, product_id:@product.id)
+		@cart_product.save!
+	end
 	private
-	def params_admin_product
-    params.require(:product).permit(:product_image, :name, :text, :price)
+	def cart_product_params
+    params.require(:cart_product_params).permit(:count,:product_id)
   end
 
 end

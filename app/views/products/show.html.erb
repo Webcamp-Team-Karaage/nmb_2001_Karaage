@@ -15,11 +15,12 @@
         <div>
           <%= form_for(@cart_product) do |f| %>
             <%= f.text_field :count %>
+            <%=f.submit "カートに入れる"%>
           <% end %>
           個数選択</div>
         <div>
           <a class = "show-icon">
-            <%= link_to "カートに入れる", cart_products_path %>
+              
           </a>
         </div>
       </div>

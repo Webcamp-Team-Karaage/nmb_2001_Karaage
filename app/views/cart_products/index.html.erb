@@ -7,6 +7,7 @@
         <a class = "show-icon">
           <%= link_to "カートを空にする", cart_products_path, method: :delete_all, "data-confirm" => "本当に削除しますか？" %>
         </a>
+
         <table class = "table table-hober table-inverse">
           <thead>
             <tr>
@@ -22,7 +23,10 @@
               <td>イチゴケーキ</td>
               <td>1,100</td>
               <td>
+
+                
                 <%= form_for(@cart_product) do |f| %>
+
                   <%= f.text_field :count %>
                   <a class = "show-icon">
                     <%= link_to "変更", cart_products_path %>
