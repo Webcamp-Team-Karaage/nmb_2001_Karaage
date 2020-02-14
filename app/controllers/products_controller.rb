@@ -10,11 +10,5 @@ class ProductsController < ApplicationController
 	def show
 		@cart_product = CartProduct.new
 		@admin_product = Product.find(params[:id])
-	end
-
-	private
-	def params_admin_product
-    params.require(:product).permit(:product_image, :name, :text, :price)
-  end
 
 end

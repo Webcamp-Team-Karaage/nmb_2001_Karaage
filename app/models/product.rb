@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
 
-	has_many :cart_products, dependent: :destroy
+	has_many :cart_products, dependent: :destroy,through: :cart_products
 	has_many :order_products, dependent: :destroy
 
 	belongs_to :genre
@@ -12,5 +12,5 @@ class Product < ApplicationRecord
 	validates :status, presence: true
 	validates :genre_id, presence: true
     validates :product_image, presence: true
-    
+
 end
