@@ -47,25 +47,16 @@
         </section>
         <section>
           <h4>お届け先</h4>
-          
-
-
-
-          <!--<%= @order.postal_code %>
+          <%= @order.postal_code %>
           <%= @order.address %>
-          <%= @order.address_name %>-->
+          <%= @order.address_name %>
         </section><!-- 未選択を省く必要あり -->
-          <!-- member, shipping_address, new -->
-        
-
         <div>
           <%= form_for(@order) do |f| %>
           <%= f.submit "購入を確定する" %>
           <% end %>
         </div>
-
       </div>
-
     </div>
   </div>
 </div>
