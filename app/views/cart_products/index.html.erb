@@ -23,14 +23,12 @@
               <td>イチゴケーキ</td>
               <td>1,100</td>
               <td>
+                <%=puts @member%>
 
-                
-                <%= form_for(@cart_product) do |f| %>
+                <%= form_for(@cart_product,:url => {controller: "cart_products", :action => :create}) do |f| %>
 
                   <%= f.text_field :count %>
-                  <a class = "show-icon">
-                    <%= link_to "変更", cart_products_path %>
-                  </a>
+
                 <% end %>
               </td>
               <td>1,100</td>

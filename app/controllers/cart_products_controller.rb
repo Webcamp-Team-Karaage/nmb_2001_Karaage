@@ -7,9 +7,12 @@ class CartProductsController < ApplicationController
 
 
 		@cart_product = CartProduct.new(cart_product_params)
-		@cart_product =  CartProduct.new(member_id:current_member.id, product_id:cart_products.id)
+		@product = Product.find(params[:cart_product][:product_id])
+		@cart_product.member_id =  current_member.id
+		@cart_product.product_id = @product.id
 		@cart_product.save!
-
+		@member = Member.find(current_member.id)
+		
 		redirect_to cart_products_path
 	end
 	def update
@@ -30,6 +33,6 @@ class CartProductsController < ApplicationController
 
 	private
 	def cart_product_params
-		params.require(:cart_product).permit(:count,:product_id)
+		params.require(:cart_product).permit(:count,:product_id,:member_id)
 	end
 end
