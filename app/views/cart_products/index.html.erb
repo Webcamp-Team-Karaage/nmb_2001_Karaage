@@ -18,28 +18,6 @@
             </tr>
           </thead>
           <tbody>
-<<<<<<< HEAD
-            <tr>
-              <td>イチゴケーキ</td>
-              <td>1,100</td>
-              <td>
-                <%=puts @member%>
-
-                <%= form_for(@cart_product,:url => {controller: "cart_products", :action => :create}) do |f| %>
-
-                  <%= f.text_field :count %>
-
-                <% end %>
-              </td>
-              <td>1,100</td>
-              <td>
-                <a class = "show-icon">
-                  <%= link_to "削除する", cart_products_path, method: :delete, "data-confirm" => "本当に削除しますか？" %>
-                </a>
-              </td>
-            </tr>
-=======
-
             <% @cart_products.each do |cart_product| %>
               <tr>
                 <td><%= attachment_image_tag cart_product.product, :product_image,format:'jpeg',size: "50x50" %><%= cart_product.product.name %></td>
@@ -60,8 +38,6 @@
                 </td>
               </tr>
             <% end %>
-
->>>>>>> a675a0a59748f3f2f869e4c3c44245fe62008fd6
           </tbody>
         </table>
 
