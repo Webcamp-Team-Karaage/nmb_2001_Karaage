@@ -7,6 +7,7 @@ class CartProductsController < ApplicationController
 		#@admin_product = Product.find(params[:id])
 	end
 	def create
+
 		@cart_product = CartProduct.new(cart_product_params)
 		@cart_product.member_id = current_member.id
 		@product = Product.find(params[:cart_product][:product_id])
@@ -32,7 +33,9 @@ class CartProductsController < ApplicationController
 
 	private
 	def cart_product_params
+
 		params.require(:cart_product).permit(:count, :member_id, :product_id)
+
 	end
 
 end
