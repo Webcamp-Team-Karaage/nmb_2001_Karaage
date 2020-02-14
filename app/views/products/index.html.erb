@@ -2,11 +2,13 @@
   <div class="container">
     <div class="row">
       <!-- ジャンル部分テンプレート -->
-      <div class="col-xs-2"></div>
+      <div class="col-xs-2">
+        <p class="genre-search-title">ジャンル検索</p>
+      </div>
 
       <!-- 商品一覧ページ -->
       <div class="col-xs-10">
-        <h2>ケーキ (全X件)</h2>
+        <h2>ケーキ (全<%= Product.count %>件)</h2>
         <div>
           <% @admin_products.each do |admin_product| %>
             <ul>
