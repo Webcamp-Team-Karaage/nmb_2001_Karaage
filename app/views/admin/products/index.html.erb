@@ -1,15 +1,16 @@
-  <div class = "row">
-
-  <table class= "table table-bordered text-center">
-    <div class="page-info"><h4>配送先登録/一覧</h4></div>
-    <tr>
-      <th>商品ID</th>
-      <td>商品名</td>
-      <td>税抜価格</td>
-      <td>ジャンル</td>
-      <td>ステータス</td>
-    </tr>
-    <% @admin_products.each do |admin_product|%>
+<div class = "row">
+  <div class="page-info"><h4>商品一覧画面</h4></div>
+    <div class="col-xs-offset-1 col-xs-7">
+      <table class= "table table-bordered text-center">
+        <thead>
+        <tr>
+          <th>商品ID</th>
+          <td>商品名</td>
+          <td>税抜価格</td>
+          <td>ジャンル</td>
+          <td>ステータス</td>
+        </tr>
+        <% @admin_products.each do |admin_product|%>
         <tr>
             <td><%=admin_product.id%></td>
 
@@ -21,7 +22,7 @@
 
             <td><%=admin_product.status%></td>
         </tr>
+        <%end%>
       </table>
     </div>
 </div>
-    <%end%>
