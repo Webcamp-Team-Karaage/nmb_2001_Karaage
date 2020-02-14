@@ -1,9 +1,9 @@
 <!-- 配送先新規登録フォーム -->
-<div class="row">
+<div class="row index">
 	<div class="col-xs-offset-1 col-xs-7">
 		<div class="page-info"><h4>配送先登録/一覧</h4></div>
-		<table class="table table-bordered">
 			<%= form_for(@shipping_address) do |f| %>
+		<table class="table table-bordered">
 			<tbody>
 				<tr>
 	  				<th class="active">郵便番号</th>
@@ -19,8 +19,7 @@
 	  			</tr>
 	  		</tbody>
 	  	</table>
-
-	  		<%= f.submit '登録する', class: "btn btn-primary" %>
+	  		<%= f.submit '登録する', class: "btn btn-primary pull-right" %>
   			<% end %>
 	</div>
 </div>
