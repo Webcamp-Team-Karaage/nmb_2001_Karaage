@@ -7,16 +7,16 @@
       <%= f.attachment_field :product_image%>
     </div>
     <div class ="col-xs-5">
-      <%= f.label :name, "商品名" %>
-      <%= f.text_field :name%>
-      <%= f.label :text, "商品説明" %>
-      <%= f.text_area :text %>
-      <%= f.label :genre_id, "ジャンル" %>
-      <%= f.collection_select :genre_id, @genres, :id, :name %>
-      <%= f.label :price, "税抜き価格" %>
-      <%= f.text_field :price%>
-      <%= f.label :status, "販売ステータス" %>
-      <%= f.select :status, Product.statuses.keys{}%>
+      <p><%= f.label :name, "商品名" %>
+      <%= f.text_field :name%></p>
+      <p><%= f.label :text, "商品説明" %>
+      <%= f.text_area :text %></p>
+      <p><%= f.label :genre_id, "ジャンル" %>
+        <%= f.collection_select :genre_id, @genres, :id, :name %></p>
+      <p><%= f.label :price, "税抜き価格" %>
+      <%= f.text_field :price%></p>
+      <p><%= f.label :status, "販売ステータス" %>
+      <%= f.select :status, Product.statuses.keys{}%></p>
       <%= f.submit "変更内容を保存"%>
     <%end%>
   </div>

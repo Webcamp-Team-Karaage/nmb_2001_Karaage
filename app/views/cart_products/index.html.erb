@@ -7,7 +7,6 @@
         <a class = "show-icon">
           <%= link_to "カートを空にする", cart_products_path, method: :delete, "data-confirm" => "本当に削除しますか？" %>
         </a>
-
         <table class = "table table-hober table-inverse">
           <thead>
             <tr>
@@ -40,7 +39,7 @@
               </td>
             </tr>
 =======
-            
+
             <% @cart_products.each do |cart_product| %>
               <tr>
                 <td><%= attachment_image_tag cart_product.product, :product_image,format:'jpeg',size: "50x50" %><%= cart_product.product.name %></td>
