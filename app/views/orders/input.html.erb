@@ -4,11 +4,11 @@
       <!-- 注文情報入力ページ -->
       <div>
         <h4>購入情報入力</h4>
-        <%= form_for(@order) do |f| %>
+        <%= form_for(@order, :url => {controller: "orders", action: :new}) do |f| %>
         <div>
           <h4>支払方法</h4>
-          <label><%= f.radio_button :payment, "0" %>クレジットカード</label><br>
-          <label><%= f.radio_button :payment, "1" %>銀行振込</label>
+          <label><%= f.radio_button :payment, "クレジットカード" %>クレジットカード</label><br>
+          <label><%= f.radio_button :payment, "銀行振込" %>銀行振込</label>
         </div>
         <div>
           <h4>お届け先</h4>
@@ -44,9 +44,8 @@
         </div>
         
         <div>
-          <a class = "show-icon">
-          <%= link_to "確認画面へ進む", new_order_path %>
-          </a>
+          <%= f.submit "確認画面へ進む" %>
+          
         </div>
 
         <% end %>

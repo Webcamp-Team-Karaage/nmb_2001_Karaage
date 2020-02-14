@@ -42,24 +42,13 @@
         </table>
 
         <section>
-          
 
           <h4>支払方法</h4>
-          <% if @order.payment == "0" %>
-            <span>クレジットカード</span>
-          <% else %>
-            <span>銀行振込</span>
-          <% end %>
+          <%= @order.payment %>
         </section><!-- 未選択を省く必要あり -->
         <section>
           <h4>お届け先</h4>
-          <% if @order.address == "ご自身の住所" %>
-            <span>ご自身の住所</span>
-          <% elsif @order.address == "登録済みの住所から選択" %>
-            <span>登録済みの住所から選択</span>
-          <% else %>
-            <span>新しいお届け先</span>
-          <% end %>
+        
         </section><!-- 未選択を省く必要あり -->
           
         
