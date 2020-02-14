@@ -42,8 +42,10 @@
         </table>
 
         <section>
+          
+
           <h4>支払方法</h4>
-          <% if @order.payment == "クレジットカード" %>
+          <% if @order.payment == "0" %>
             <span>クレジットカード</span>
           <% else %>
             <span>銀行振込</span>

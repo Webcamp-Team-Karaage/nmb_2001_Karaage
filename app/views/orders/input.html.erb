@@ -7,8 +7,8 @@
         <%= form_for(@order) do |f| %>
         <div>
           <h4>支払方法</h4>
-          <label><%= f.radio_button :payment, "クレジットカード" %>クレジットカード</label><br>
-          <label><%= f.radio_button :payment, "銀行振込" %>銀行振込</label>
+          <label><%= f.radio_button :payment, "0" %>クレジットカード</label><br>
+          <label><%= f.radio_button :payment, "1" %>銀行振込</label>
         </div>
         <div>
           <h4>お届け先</h4>
