@@ -1,48 +1,64 @@
 <!-- 配送先新規登録フォーム -->
-<h2>配送先登録/一覧</h2>
-	<%= form_for(@shipping_address) do |f| %>
+<div class="row">
+	<div class="col-xs-offset-1 col-xs-7">
+		<div class="page-info"><h4>配送先登録/一覧</h4></div>
+		<table class="table table-bordered">
+			<%= form_for(@shipping_address) do |f| %>
+			<tbody>
+				<tr>
+	  				<th class="active">郵便番号</th>
+	  				<td><%= f.text_field :postal_code, class: "col-xs-4" %></td>
+	  			</tr>
+	  			<tr>
+	  				<th class="active">住所</th>
+	  				<td><%= f.text_field :address, class: "col-xs-12" %></td>
+	  			</tr>
+	  			<tr>
+	  				<th class="active">宛名</th>
+	  				<td><%= f.text_field :address_name, class: "col-xs-6" %></td>
+	  			</tr>
+	  		</tbody>
+	  	</table>
 
-	  <h4>郵便番号</h4>
-	  <%= f.text_field :postal_code %>
-
-	  <h4>住所</h4>
-	  <%= f.text_field :address %>
-
-	  <h4>宛名</h4>
-	  <%= f.text_field :address_name %>
-
-	  <%= f.submit '登録する' %>
-  	<% end %>
+	  		<%= f.submit '登録する', class: "btn btn-primary" %>
+  			<% end %>
+	</div>
+</div>
+<!-- 配送先一覧 -->
+<div class="row info">
+	<div class="col-xs-offset-1 col-xs-7">
+		<table class="table table-bordered">
+	 		<thead>
+		 		<tr bgcolor="#f5f5f5">
+			 		<th>郵便番号</th>
+			 		<th>住所</th>
+			 		<th>宛名</th>
+			 		<th></th>
+		 		</tr>
+	 		</thead>
+	 		<tbody>
+	   		<% @shipping_addresses.each do |shipping_address| %>
+		 		<tr>
+			 		<td><%= shipping_address.postal_code %></td>
+			 		<td><%= shipping_address.address %></td>
+			 		<td><%= shipping_address.address_name %></td>
+			 		<th>
+			 			<%= link_to "編集する", edit_shipping_address_path(shipping_address.id), class: "btn btn-primary btn-sm" %>
+			 			<%= link_to "削除する", shipping_address_path(shipping_address.id), class: "btn btn-danger btn-sm", method: :delete, "data-confirm" => "本当に削除しますか?" %>
+			 		</th>
+		 		</tr>
+	   		<% end %>
+	 		</tbody>
+		</table>
+	</div>
+</div>
 
 <!-- ↓空欄エラー表示 -->
 	<% if @shipping_address.errors.any? %>
-		<h2><%= @shipping_address.errors.count %>errorです。</h2>
+		<h2><%= @shipping_address.errors.count %>箇所空欄があります。</h2>
     	<ul>
       		<% @shipping_address.errors.full_messages.each do |message| %>
         		<li><%= message %></li>
       		<% end %>
     	</ul>
 	<% end %>
-
-<!-- 配送先一覧 -->
-<table>
-	 <thead>
-		 <tr>
-			 <th>郵便番号</th>
-			 <th>住所</th>
-			 <th>宛名</th>
-			 <th colspan="2"></th>
-		 </tr>
-	 </thead>
-	 <tbody>
-	   <% @shipping_addresses.each do |shipping_address| %>
-		 <tr>
-			 <td><%= shipping_address.postal_code %></td>
-			 <td><%= shipping_address.address %></td>
-			 <td><%= shipping_address.address_name %></td>
-			 <th><%= link_to "編集する", edit_shipping_address_path(shipping_address.id) %></th>
-			 <th><%= link_to "削除する", shipping_address_path(shipping_address.id), method: :delete, "data-confirm" => "本当に削除しますか?" %></th>
-		 </tr>
-	   <% end %>
-	 </tbody>
- </table>
