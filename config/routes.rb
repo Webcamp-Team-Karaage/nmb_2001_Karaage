@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   put 'members/:id/delete_me' => 'members#withdraw', as: 'withdraw' #会員退会用メソッド
   delete 'cart_products' => 'cart_products#destroy_all'
   get 'members/:id/orders/input' => 'orders#input', as: 'input'
+  post 'members/:id/orders/new' => 'orders#new', as: 'new'
   get 'members/:id/orders/new' => 'orders#new', as: 'new_order'
   get 'orders/thanks' => 'orders#thanks'
   get 'admins/top' => 'admins#top'

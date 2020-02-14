@@ -41,7 +41,9 @@
           </tr>
         </table>
 
+        <section>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         <%= @orders.each do |order| %>
         <section>
@@ -54,16 +56,22 @@
             <%= order.payment %>
 >>>>>>> 6c8281cddfb65eea788462d40d91eb3be893974b
         </section>
+=======
+          <h4>支払方法</h4>
+          <%= @order.payment %>
+        </section><!-- 未選択を省く必要あり -->
+>>>>>>> 3d37c3929563d8fb9128a6632d956285f6f679bc
         <section>
           <h4>お届け先</h4>
-          <%= order.address %>
-        </section>
-        <% end %>
+        
+        </section><!-- 未選択を省く必要あり -->
+          
+        
 
         <div>
-          <a class = "show-icon">
-          <%= link_to "購入を確定する", orders_thanks_path %>
-          </a>
+          <%= form_for(@order) do |f| %>
+          <%= f.submit "購入を確定する" %>
+          <% end %>
         </div>
 
       </div>
