@@ -11,7 +11,7 @@
 		<div class="page-info"><h2>登録情報</h2></div>
 
 		<div class="member-btn">
-			<%= link_to "編集する", edit_member_path(current_member),class: "btn btn-info" %>
+			<%= link_to "編集する", edit_member_path(current_member),class: "btn btn-primary" %>
 			<%= link_to "パスワードを変更する", new_member_password_path(current_member),class: "btn btn-warning" %>
 		</div>
 	</div>
@@ -65,11 +65,11 @@
 			<tbody>
 				<tr>
 					<th><h4>配送先</h4></th>
-					<td><%= link_to "一覧を見る", shipping_addresses_path,class: "btn btn-info" %></td>
+					<td><%= link_to "一覧を見る", shipping_addresses_path(current_member),class: "btn btn-info" %></td>
 				</tr>
 				<tr>
 					<th><h4>注文履歴</h4></th>
-					<td><%= link_to "一覧を見る", orders_path,class: "btn btn-info" %></td>
+					<td><%= link_to "一覧を見る", orders_path(current_member),class: "btn btn-info" %></td>
 				</tr>
 			</tbody>
 		</table>
