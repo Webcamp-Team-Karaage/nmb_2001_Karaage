@@ -2,7 +2,11 @@
   <div class="container">
     <div class="row">
 <!-- ジャンル部分テンプレート -->
-      <div class="col-xs-2"></div>
+      <div class="col-xs-2">
+        <p class="genre-search-title">ジャンル検索</p>
+        <% @genres.each do |genre| %>
+        <%= link_to genre.name,products_path(id: genre.id) %><br>
+        <% end %></div>
 <!-- 商品一覧 -->
       <div class="col-xs-10">
         <h2>商品一覧 (全<%= Product.count %>件)</h2>
