@@ -42,25 +42,21 @@
         </table>
 
         <section>
-
           <h4>支払方法</h4>
           <%= @order.payment %>
-        </section><!-- 未選択を省く必要あり -->
+        </section>
         <section>
           <h4>お届け先</h4>
-        
+          <%= @order.postal_code %>
+          <%= @order.address %>
+          <%= @order.address_name %>
         </section><!-- 未選択を省く必要あり -->
-          
-        
-
         <div>
           <%= form_for(@order) do |f| %>
           <%= f.submit "購入を確定する" %>
           <% end %>
         </div>
-
       </div>
-
     </div>
   </div>
 </div>
