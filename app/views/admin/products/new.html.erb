@@ -1,23 +1,26 @@
-<div class = "">
-<h1>商品　新規登録画面</h1>
+<div class = "container">
+  <div class = "row">
+<h1 class = "title">商品　新規登録画面</h1>
 
 
 <%= form_for(@admin_product ,url: admin_products_path) do |f| %>
-
-    <%= f.attachment_field :product_image%>
-    <%= f.label :name, "商品名" %>
-    <%= f.text_field :name%></br>
-    <%= f.label :text, "商品説明" %>
-    <%= f.text_area :text %></br>
-
-    <%= f.label :genre_id, "ジャンル" %>
-
-    <%= f.collection_select :genre_id, @genres, :id, :name %>
-
-    <%= f.label :price, "税抜き価格" %>
-    <%= f.text_field :price%></br>
-    <%= f.label :status, "販売ステータス" %>
-
-    <%= f.select :status, Product.statuses.keys{}%></br>
-    <%= f.submit "新規登録"%>
+  <div class = "col-xs-4">
+    <p><%= f.attachment_field :product_image%>
+    </p>
+  </div>
+  <div class = "col-xs-5 text-left">
+    <p><%= f.label :name, "商品名",class:"colum"%>
+    <%= f.text_field :name%></p>
+      <p><%= f.label :text, "商品説明",class:"colum" %>
+        <%= f.text_area :text %></p>
+    <p><%= f.label :genre_id, "ジャンル",class:"colum index1" %>
+    <%= f.collection_select :genre_id, @genres, :id, :name %></p>
+    <p><%= f.label :price, "税抜き価格",class:"colum" %>
+      <%= f.text_field :price%></p>
+    <p><%= f.label :status, "販売ステータス",class:"colum" %>
+      <%= f.select :status, Product.statuses.keys{}%></p>
+    <%= f.submit "新規登録",class: "index btn btn-info" %>
+  </div>
+</div>
+</div>
 <%end%>

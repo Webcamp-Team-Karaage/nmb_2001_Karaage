@@ -1,4 +1,13 @@
-<table border="1">
+<div class ="container">
+  <div class = "row">
+  <table class= "table table-bordered text-center">
+    <tr>
+      <td>商品ID</td>
+      <td>商品名</td>
+      <td>税抜価格</td>
+      <td>ジャンル</td>
+      <td>ステータス</td>
+    </tr>
     <% @admin_products.each do |admin_product|%>
         <tr>
             <td><%=admin_product.id%></td>
@@ -11,4 +20,7 @@
 
             <td><%=admin_product.status%></td>
         </tr>
+      </table>
+    </div>
+</div>
     <%end%>
