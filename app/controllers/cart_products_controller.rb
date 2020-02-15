@@ -1,13 +1,8 @@
 class CartProductsController < ApplicationController
 	def index
-		@cart_product = CartProduct.new #product単数が必要でいれた
-		@cart_products = CartProduct.all #商品全件載せる
-
-		@admin_products = Product.all
-		#@admin_product = Product.find(params[:id])
+		@cart_products = CartProduct.all
 	end
 	def create
-
 		@cart_product = CartProduct.new(cart_product_params)
 		@cart_product.member_id = current_member.id
 		@product = Product.find(params[:cart_product][:product_id])
@@ -33,9 +28,6 @@ class CartProductsController < ApplicationController
 
 	private
 	def cart_product_params
-
 		params.require(:cart_product).permit(:count, :member_id, :product_id)
-
 	end
-
 end
