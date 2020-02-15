@@ -1,6 +1,9 @@
 class CartProductsController < ApplicationController
 	def index
 		@cart_products = CartProduct.all
+
+		@total_price = @cart_products.sum(:count) #合計金額出したいためのメモ
+
 	end
 	def create
 		@cart_product = CartProduct.new(cart_product_params)

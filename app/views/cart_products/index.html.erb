@@ -54,6 +54,7 @@
               <% @cart_products.each do |cart_product| %>
                 <%= cart_product.product.price * cart_product.count %>
               <% end %>
+              <%= @total_price %><!-- メモ -->
             </td>
           </tr>
         </table>
