@@ -25,12 +25,13 @@
                 <td>
                   <%= form_for(cart_product) do |f| %>
                     <%= f.text_field :count %>
+                    <%= f.submit "変更" %>
                     <a class = "show-icon">
                       <%= link_to "変更", cart_products_path %>
                     </a>
                   <% end %>
                 </td>
-                <td>1,100</td>
+                <td><%= cart_product.product.price * cart_product.count %></td>
                 <td>
                   <a class = "show-icon">
                     <%= link_to "削除する", cart_product_path(cart_product.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
@@ -49,7 +50,12 @@
         <table class = "table table-hober table-inverse">
           <tr>
             <th>合計金額</th>
-            <td>1,760</td>
+            <td>1,760
+              <% @cart_products.each do |cart_product| %>
+                <%= cart_product.product.price * cart_product.count %>
+              <% end %>
+              <%= @total_price %><!-- メモ -->
+            </td>
           </tr>
         </table>
     <div>
