@@ -1,11 +1,10 @@
 class CartProductsController < ApplicationController
 	def index
-		@cart_product = CartProduct.new #product単数が必要でいれた
-		@cart_products = CartProduct.all #商品全件載せる
-		@member = current_member
+		@cart_products = CartProduct.all
+
+		@total_price = @cart_products.sum(:count) #合計金額出したいためのメモです
 	end
 	def create
-
 		@cart_product = CartProduct.new(cart_product_params)
 		@cart_product.member_id = current_member.id
 		@product = Product.find(params[:cart_product][:product_id])
@@ -14,7 +13,7 @@ class CartProductsController < ApplicationController
 		redirect_to cart_products_path
 	end
 	def update
-		@cart_product = CartProduct.find(cart_product_params[:id])#
+		@cart_product = CartProduct.find(cart_product_params[:id])#updateはshowページでないためfindは使えない
 		@cart_product.update(cart_product_params)
 		redirect_to cart_products_path
 	end
@@ -31,9 +30,6 @@ class CartProductsController < ApplicationController
 
 	private
 	def cart_product_params
-
 		params.require(:cart_product).permit(:count, :member_id, :product_id)
-
 	end
-
 end

@@ -2,14 +2,18 @@
   <div class="container">
     <div class="row">
       <!-- ジャンル部分テンプレート -->
-      <div class="col-xs-2">
-        <p class="genre-search-title">ジャンル検索</p>
-        <% @genres.each do |genre| %>
-        <%= link_to genre.name,products_path(id: genre.id) %><br>
-        <% end %></div>
+      <div class="col-xs-2 genre-box">
+        <h3 class="genre-search-title text-center">ジャンル検索</h3>
+        <div class="genre-link">
+          <% @genres.each do |genre| %>
+          <%= link_to genre.name,products_path(id: genre.id) %><br>
+          <% end %>
+        </div>
+      </div>
 
       <!-- 商品一覧ページ -->
       <div class="col-xs-10">
+<<<<<<< HEAD
         <h2>ケーキ (全<%= @products.count %>件)</h2>
         <div>
 <<<<<<< HEAD
@@ -38,7 +42,23 @@
               <li>商品名<%= product.name %></li>
               <li>価格<%= product.price %></li>
             </ul>
+=======
+        <h2><%= @genre.name %> (全<%= @products.count %>件)</h2>
+        <div class="product-box">
+          <% @products.each do |product| %>
+            <div class="product-item clearfix">
+              <div class="product-image">
+                  <%= link_to product_path(product.id) do %>
+                    <%= attachment_image_tag product, :product_image,format:'jpeg',size: "200x150" %>
+                <% end %>
+                </div>
+              <p class="product-name">商品名：<%= product.name %></p>
+              <p class="product-price">¥<%= product.price %></p>
+              <span class="product-genre"><%= product.genre.name %></span>
+            </div>
+>>>>>>> 0aeb92afd53a1d33ab328e48cb1c9d4bedbc46b9
           <% end %>
+          <%= paginate @products, class: "paginate" %>
         </div>
       </div>
     </div>
