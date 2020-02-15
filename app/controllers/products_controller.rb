@@ -1,10 +1,8 @@
 class ProductsController < ApplicationController
 	def index
-		#@admin_products = Product.all
-		#@admin_product = Product.new
 		@genres = Genre.all
 		@genre = Genre.find(params[:id])
-		@products = @genre.products
+		@products = @genre.products.page(params[:page]).reverse_order
 	end
 	def show
 		@cart_product = CartProduct.new
