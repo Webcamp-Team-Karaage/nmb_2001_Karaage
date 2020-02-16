@@ -16,7 +16,7 @@ class CartProductsController < ApplicationController
 		redirect_to cart_products_path
 	end
 	def update
-		@cart_product = CartProduct.find(cart_product_params[:id])#updateはshowページでないためfindは使えない
+		@cart_product = CartProduct.find(params[:id])
 		@cart_product.update(cart_product_params)
 		redirect_to cart_products_path
 	end
