@@ -23,7 +23,8 @@ class OrdersController < ApplicationController
 			@price = cart_product.count * cart_product.product.price
 			@price_sum = @price + @price_sum
 		end
-				
+		
+			
 		#@order = Order.find(order_params[:id])
 		#order.save
 		#redirect_to orders_thanks_path
@@ -50,6 +51,7 @@ class OrdersController < ApplicationController
 		redirect_to orders_thanks_path
 	end
 	def thanks
+		
 	end
 
 	private
