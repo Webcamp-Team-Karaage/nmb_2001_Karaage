@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
 		if params[:address_select] == "1"
 			@order.postal_code = current_member.postal_code
 			@order.address = current_member.address
-			@order.address_name = current_member.address_name			
+			@order.address_name = current_member.address_name
 		elsif params[:address_select] == "2"
 			@shipping_address = ShippingAddress.find(params[:id])
 			@order.postal_code = @shipping_address.postal_code
@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
 			@price = cart_product.count * cart_product.product.price
 			@price_sum = @price + @price_sum
 		end
-				
+
 		#@order = Order.find(order_params[:id])
 		#order.save
 		#redirect_to orders_thanks_path
