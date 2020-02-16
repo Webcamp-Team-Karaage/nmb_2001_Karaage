@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
 			@order.postal_code = @shipping_address.postal_code
 			@order.address = @shipping_address.address
 			@order.address_name = @shipping_address.address_name
-		else
+		
 		end
 
 		#@order = Order.find(order_params[:id])
@@ -24,8 +24,22 @@ class OrdersController < ApplicationController
 		#redirect_to orders_thanks_path
 	end
 	def create
+	
 		@order = Order.new(order_params)
-		@order.save
+		@order.member_id = current_member.id
+		@order.save!
+		@member = current_member
+		@cart_products = CartProduct.where(member_id: current_member)
+		
+		@cart_products.each do |cart_product|
+			
+			@order_product = OrderProduct.new
+			@order_product.product_id = cart_product.product_id
+			@orders = Order.all
+			@order_product.order_id = @orders.length 
+			@order_product.save!
+			cart_product.destroy
+		end
 		redirect_to orders_thanks_path
 	end
 	def thanks
