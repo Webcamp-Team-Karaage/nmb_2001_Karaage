@@ -13,19 +13,19 @@
         <tr>
             <td>
             	<!-- 購入日時（リンク先は注文履歴詳細） -->
-            	<%= link_to admin_order_path(order.id) do %>
-            		<%= order_product.created_at %>
-            	<% end%>
+            	<%= link_to admin_order_path(admin_order.id) do %>
+            		<%= admin_order.created_at.strftime('%y/%m/%d') %>
+            	<% end %>
             </td>
             <td>
             	<!-- 購入者フルネーム -->
-            	<%= order.member.first_name %>
-            	<%= order.member.last_name %>
+            	<%= admin_order.member.first_name %>
+            	<%= admin_order.member.last_name %>
             </td>
             	<!-- 注文商品の個数 -->
-            <td><%= Order.all.sum(:count) %></td>
+            <td><%= %></td>
             	<!-- 注文ステータス -->
-            <td><%= order_product.statas %></td>
+            <td><%= %></td>
         </tr>
     <% end %>
 	</tbody>
