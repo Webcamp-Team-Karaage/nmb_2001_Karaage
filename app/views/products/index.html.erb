@@ -52,9 +52,11 @@
                     <%= attachment_image_tag product, :product_image,format:'jpeg',size: "200x150" %>
                 <% end %>
                 </div>
-              <p class="product-name">商品名：<%= product.name %></p>
-              <p class="product-price">¥<%= product.price %></p>
-              <span class="product-genre"><%= product.genre.name %></span>
+              <div class="product-details">
+                <p class="product-name">商品名：<%= product.name %></p>
+                <p class="product-price">¥<%= product.price %></p>
+                <span class="product-genre"><%= product.genre.name %></span>
+              </div>
             </div>
 >>>>>>> 0aeb92afd53a1d33ab328e48cb1c9d4bedbc46b9
           <% end %>

@@ -1,71 +1,70 @@
 <div class="body">
   <div class="container">
     <div class="row">
-      <!-- カートページ -->
-      <div>
-        <h4>ショッピングカート</h4>
-        <a class = "show-icon">
-          <%= link_to "カートを空にする", cart_products_path, method: :delete, "data-confirm" => "本当に削除しますか？" %>
-        </a>
-        <table class = "table table-hober table-inverse">
-          <thead>
-            <tr>
-              <th width = "300">商品名</th>
-              <th width = "100">単価(税込)</th>
-              <th width = "100">数量</th>
-              <th width = "100">小計</th>
-              <th width = "100"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @cart_products.each do |cart_product| %>
-              <tr>
-                <td><%= attachment_image_tag cart_product.product, :product_image,format:'jpeg',size: "50x50" %><%= cart_product.product.name %></td>
-                <td><%= cart_product.product.price %></td>
-                <td>
-                  <%= form_for(cart_product) do |f| %>
-                    <%= f.text_field :count %>
-                    <%= f.submit "変更" %>
-                    <a class = "show-icon">
-                      <%= link_to "変更", cart_products_path %>
-                    </a>
-                  <% end %>
-                </td>
-                <td><%= cart_product.product.price * cart_product.count %></td>
-                <td>
-                  <a class = "show-icon">
-                    <%= link_to "削除する", cart_product_path(cart_product.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-                  </a>
-                </td>
+      <div class="col-xs-4">
+        <h2>ショッピングカート</h2>
+      </div>
+      <div class = "col-xs-offset-5 col-xs-2 destroy-btn">
+        <%= link_to "カートを空にする", cart_products_path, method: :delete,class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %>
+      </div>
+    </div>
+    <!-- カート内商品一覧 -->
+      <div class="row">
+        <div class="col-xs-offset-1 col-xs-10">
+          <table class = "table table-bordered table-inverse">
+            <thead>
+              <tr class="info">
+                <th width = "300" class="text-center">商品名</th>
+                <th width = "100" class="text-center">単価(税込)</th>
+                <th width = "100" class="text-center">数量</th>
+                <th width = "100" class="text-center">小計</th>
+                <th width = "100" class="text-center"></th>
               </tr>
-            <% end %>
-          </tbody>
-        </table>
-
-        <div>
-          <a class = "show-icon">
-          <%= link_to "買い物を続ける", root_path %>
-          </a>
-        </div>
-        <table class = "table table-hober table-inverse">
-          <tr>
-            <th>合計金額</th>
-            <td>1,760
+            </thead>
+            <tbody>
               <% @cart_products.each do |cart_product| %>
-                <%= cart_product.product.price * cart_product.count %>
+                <tr>
+                  <td><%= attachment_image_tag cart_product.product, :product_image,format:'jpeg',size: "50x50" %><%= cart_product.product.name %></td>
+                  <td class="text-center"><%= cart_product.product.price %></td>
+                  <td class="text-center">
+                    <%= form_for(cart_product) do |f| %>
+                      <%= f.text_field :count, :size=>"5" %>
+                      <%= f.hidden_field :id %>
+                      <%= f.submit "変更",class: "btn btn-info btn-sm" %>
+                      </a>
+                    <% end %>
+                  </td>
+                  <td class="text-center"><%= cart_product.product.price * cart_product.count %></td>
+                  <td class="text-center"><%= link_to "削除する", cart_product_path(cart_product.id), method: :delete,class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %></td>
+                </tr>
               <% end %>
-              <%= @total_price %><!-- メモ -->
-            </td>
-          </tr>
-        </table>
-    <div>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- /カート内商品一覧 -->
+
+      <div class="row">
+        <div class="col-xs-offset-1 col-xs-2">
           <a class = "show-icon">
-            <%= link_to "情報入力に進む", input_path(current_member) %>
+          <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
           </a>
         </div>
-
+        <div class="col-xs-offset-2 col-xs-6">
+          <table class = "table table-bordered table-inverse">
+            <tr>
+              <th class="info">合計金額</th>
+              <td><%= @total_price %></td>
+            </tr>
+          </table>
+        </div>
       </div>
 
-    </div>
+      <div class="row">
+        <div class="col-xs-offset-4 col-xs-4">
+            <%= link_to "情報入力に進む", input_path(current_member),class: "btn btn-success btn-lg center-block" %>
+        </div>
+      </div>
+
   </div>
 </div>
