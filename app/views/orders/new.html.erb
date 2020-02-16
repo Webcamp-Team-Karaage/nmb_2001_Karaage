@@ -6,40 +6,48 @@
         <h4>注文情報確認</h4>
 
         <!-- 商品名table -->
-        <table>
+        
+        <table border = 1>
           <thead>
             <tr>
-              <th width = "400">商品名</th>
+              <th>商品名</th>
               <th width = "100">単価(税込み)</th>
               <th width = "100">数量</th>
               <th width = "100">小計</th>
             </tr>
           </thead>
           <tbody>
+          <% @cart_products.each do |cart_product|%>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td><%= cart_product.product.name%></td>
+              <td><%= (cart_product.product.price * 1.1).floor%></td>
+              <td> <%= cart_product.count%></td>
+              <td><%= (cart_product.product.price * 1.1).floor * cart_product.count%></td>
             </tr>
           </tbody>
+          <% end%>
         </table>
+        
 
-        <!-- 送料table -->
-        <table>
+        <!-- 送料table --> 
+       
+        <table border = 1>
+        
           <tr>
             <td>送料</td>
             <td>800</td>
           </tr>
           <tr>
             <td>商品合計</td>
-            <td>1,760</td>
+           
+            <td><%=(@price_sum * 1.1).floor %></td>
           </tr>
           <tr>
             <td>請求金額</td>
-            <td>2,560</td>
+            <td><%= (@price_sum * 1.1).floor + 800 %></td>
           </tr>
         </table>
+        
 
         <section>
           <h4>支払方法</h4>
@@ -53,7 +61,6 @@
         </section><!-- 未選択を省く必要あり -->
         <div>
           <%= form_for(@order) do |f| %>
-          
             <%= f.hidden_field :postal_code, :value => @order.postal_code%>
             <%= f.hidden_field :address, :value => @order.address %>
             <%= f.hidden_field :address_name , :value => @order.address_name %>
