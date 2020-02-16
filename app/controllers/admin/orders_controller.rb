@@ -1,6 +1,6 @@
 class Admin::OrdersController < ApplicationController
 	def index
-<<<<<<< HEAD
+
         path = Rails.application.routes.recognize_path(request.referrer)
 
         if request.referrer == "http://localhost:3000/admins/top"
@@ -11,9 +11,7 @@ class Admin::OrdersController < ApplicationController
         else
                 @admin_orders = Order.all
         end
-=======
-		@admin_orders = Order.all
->>>>>>> origin/master
+
 =begin
         @total_count = {}
         @admin_orders.each do |order|
