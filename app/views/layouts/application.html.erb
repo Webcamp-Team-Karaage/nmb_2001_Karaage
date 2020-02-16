@@ -27,14 +27,21 @@
             <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete%></li>
             <!-- 管理者ログイン中 -->
             <% elsif admin_signed_in? %>
-            <li class="login-name">こんにちは<%= current_admin.email %>さん</li>
+            <li class="login-name">こんにちは管理者<%= current_admin.id %>さん</li>
             <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
             <li><%= link_to "会員一覧", admin_members_path %></li>
             <li><%= link_to "注文履歴一覧", admin_orders_path %></li>
             <li><%= link_to "商品一覧", admin_products_path %></li>
             <li><%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete%></li>
+            <div class="input-group">
+              <input type="text" class="form-control">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default">検索</button>
+              </span>
+            </div>
             <!-- ログアウト中 -->
             <% else %>
+            <li class="login-name">こんにちはゲストさん</li>
             <li><%= link_to "トップページ", root_path %></li>
             <li><%= link_to "アバウト", home_about_path %></li>
             <li><%= link_to "会員登録", new_member_registration_path %></li>
@@ -45,9 +52,8 @@
     </header>
     <%= yield %>
    <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-9">
+        <div class="container">
+          <div class="footer-left">
               <h4>Link</h4>
               <ul>
                 <li>
@@ -58,11 +64,10 @@
                 </li>
               </ul>
           </div>
-          <div class="inc col-xs-3">
-            <p class="inc-name">NaganoCake Inc.</p>
+          <div class="inc">
+            <p class="inc-name text-right">NaganoCake Inc.</p>
           </div>
         </div>
-      </div>
     </footer>
   </body>
 </html>
