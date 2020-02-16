@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
 			@order.address_name = @shipping_address.address_name
 		end
 		@cart_products = CartProduct.where(member_id: current_member)
+		@price_sum = 0
 		@cart_products.each do |cart_product|
 			@price = cart_product.count * cart_product.product.price
 			@price_sum = @price + @price_sum
@@ -40,6 +41,7 @@ class OrdersController < ApplicationController
 			@order_product = OrderProduct.new
 			@order_product.product_id = cart_product.product_id
 			@order_product.count = cart_product.count
+			@order_product.price_tax = (cart_product.product.price * 1.1).floor
 			@orders = Order.all
 			@order_product.order_id = @order.id 
 			@order_product.save!
