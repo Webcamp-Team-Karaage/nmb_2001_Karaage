@@ -4,7 +4,6 @@
       <div>
         <h4>購入情報入力</h4>
         <%= form_for(@order, :url => {controller: "orders", action: :new}) do |f| %>
-<<<<<<< HEAD
         <div>
           <h4>支払方法</h4>
           <%= f.radio_button :payment, :クレジットカード %>
@@ -29,15 +28,6 @@
           </section>
           <section>
             <label><%= radio_button_tag "address_select", "3" %>新しいお届け先</label>
-=======
-          <div>
-            <h4>支払方法</h4>
-            <label>&emsp;&emsp;<%= f.radio_button :payment, "クレジットカード" %>クレジットカード</label><br>
-            <label>&emsp;&emsp;<%= f.radio_button :payment, "銀行振込" %>銀行振込</label>
-          </div>
-          <div>
-            <h4>お届け先</h4>
->>>>>>> f8f6face81fe4e5f6e36861ae60a965ae82e2018
             <section>
               <label>&emsp;&emsp;<%= radio_button_tag "address_select", "1" %>ご自身の住所</label>
               <div>
