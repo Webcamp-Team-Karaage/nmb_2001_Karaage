@@ -1,10 +1,8 @@
 class OrdersController < ApplicationController
-
 	def index
 		@member = current_member
 		@orders = @member.orders
 	end
-
 	def show
 		@order = Order.find(params[:id])
 		@order_products = @order.order_products
@@ -14,7 +12,6 @@ class OrdersController < ApplicationController
 			@price_sum = @price + @price_sum
 		end
 	end
-
 	def input
 		@order = Order.new
 		@member = current_member
@@ -28,7 +25,7 @@ class OrdersController < ApplicationController
 			@order.address = current_member.address
 			@order.address_name = current_member.address_name
 		elsif params[:address_select] == "2"
-			@shipping_address = ShippingAddress.find(params[:id])
+			@shipping_address = ShippingAddress.find(params[:order][:member_id])
 			@order.postal_code = @shipping_address.postal_code
 			@order.address = @shipping_address.address
 			@order.address_name = @shipping_address.address_name
