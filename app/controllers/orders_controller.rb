@@ -1,4 +1,14 @@
 class OrdersController < ApplicationController
+
+	def index
+		@member = current_member
+		@orders = @member.orders
+	end
+
+	def show
+		@order = Order.find(params[:id])
+	end
+
 	def input
 		@order = Order.new
 		@member = current_member

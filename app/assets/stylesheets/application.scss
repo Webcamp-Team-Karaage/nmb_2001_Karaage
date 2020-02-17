@@ -61,18 +61,38 @@ li a{
 	margin: 0;
 }
 
+.input-group{
+	width: 200px;
+	float:right;
+	margin: 10px;
+}
+
+
 footer{
+	height: 100px;
 	color: #756660;
 	background-color: #ffead5;
-	position: relative;
 	margin-top:30px;
 }
 
+.container{
+	position:relative;
+}
+
+.footer-left{
+	float:left;
+}
+
 .inc{
-	position: absolute;
+	height:100px;
+	float:right;
+	display: inline-block;
+}
+
+.inc-name{
+	position:absolute;
 	bottom: 0;
-	right: 0;
-	display: block;
+	right:0;
 }
 
 .panel-info{
@@ -92,8 +112,4 @@ table{
 }
 .login-name{
 	color:#534438;
-}
-
-.inc-name{
-	text-align: right;
 }
