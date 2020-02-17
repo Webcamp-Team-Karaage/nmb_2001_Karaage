@@ -7,6 +7,12 @@ class OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
+		@order_products = @order.order_products
+		@price_sum = 0
+		@order.order_products.each do |order_product|
+			@price = order_product.count * order_product.product.price
+			@price_sum = @price + @price_sum
+		end
 	end
 
 	def input
