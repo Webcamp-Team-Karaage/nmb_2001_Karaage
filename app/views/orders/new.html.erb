@@ -1,53 +1,50 @@
 <div class="body">
   <div class="container">
-    <div class="row">
-      <!-- 注文情報確認ページ -->
-      <div>
-        <h4>注文情報確認</h4>
+    <h4>注文情報確認</h4>
 
-        <!-- 商品名table -->
-        
-        <table border = 1>
+    <!-- 商品名table -->
+    <div class = "row">
+      <div class = "col-xs-8">
+        <table class = "table table-bordered table-inverse">
           <thead>
-            <tr>
-              <th>商品名</th>
+            <tr class = "info">
+              <th width = "200">商品名</th>
               <th width = "100">単価(税込み)</th>
               <th width = "100">数量</th>
               <th width = "100">小計</th>
             </tr>
           </thead>
           <tbody>
-          <% @cart_products.each do |cart_product|%>
-            <tr>
-              <td><%= cart_product.product.name%></td>
-              <td><%= (cart_product.product.price * 1.1).floor%></td>
-              <td> <%= cart_product.count%></td>
-              <td><%= (cart_product.product.price * 1.1).floor * cart_product.count%></td>
-            </tr>
+            <% @cart_products.each do |cart_product|%>
+              <tr>
+                <td><%= attachment_image_tag cart_product.product, :product_image,format:'jpeg',size: "50x50" %><%= cart_product.product.name%></td>
+                <td><%= (cart_product.product.price * 1.1).floor%></td>
+                <td> <%= cart_product.count%></td>
+                <td><%= (cart_product.product.price * 1.1).floor * cart_product.count%></td>
+              </tr>
+            <% end%>
           </tbody>
-          <% end%>
         </table>
-        
+      </div>
 
-        <!-- 送料table --> 
-       
-        <table border = 1>
-        
+      <!-- 送料table --> 
+      <div class = "col-xs-3">       
+        <table class = "table table-bordered table-inverse">
           <tr>
-            <td>送料</td>
+            <td class = "info">送料</td>
             <td>800</td>
           </tr>
           <tr>
-            <td>商品合計</td>
-           
+            <td class = "info">商品合計</td>
             <td><%=(@price_sum * 1.1).floor %></td>
           </tr>
           <tr>
-            <td>請求金額</td>
+            <td class = "info">請求金額</td>
             <td><%= (@price_sum * 1.1).floor + 800 %></td>
           </tr>
         </table>
-        
+      </div>
+    </div>
 
         <section>
 <<<<<<< HEAD
@@ -86,6 +83,8 @@
             <%= f.hidden_field :postal_code, :value => @order.postal_code%>
             <%= f.hidden_field :address, :value => @order.address %>
             <%= f.hidden_field :address_name , :value => @order.address_name %>
+            <%= f.hidden_field :postage , :value => 800 %>
+            <%= f.hidden_field :payment , :value => @order.payment %>
           <%= f.submit "購入を確定する" %>
           <% end %>
         </div>
