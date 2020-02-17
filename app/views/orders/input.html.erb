@@ -7,8 +7,10 @@
         <%= form_for(@order, :url => {controller: "orders", action: :new}) do |f| %>
         <div>
           <h4>支払方法</h4>
-          <label><%= f.radio_button :payment, "クレジットカード" %>クレジットカード</label><br>
-          <label><%= f.radio_button :payment, "銀行振込" %>銀行振込</label>
+          <%= f.radio_button :payment, :クレジットカード %>
+          <%= f.label :クレジットカード %>
+         <%= f.radio_button :payment, :銀行振込 %>
+         <%= f.label :銀行振り込み%>
         </div>
         <div>
           <h4>お届け先</h4>
