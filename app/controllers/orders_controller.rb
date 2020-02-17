@@ -53,6 +53,7 @@ class OrdersController < ApplicationController
 		end
 		redirect_to orders_thanks_path
 	end
+	
 	def thanks
 		
 	end
