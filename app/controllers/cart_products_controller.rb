@@ -4,7 +4,7 @@ class CartProductsController < ApplicationController
 
 		@total_price = 0
 		@cart_products.each do |cart_product|
-      @total_price += cart_product.product.price * cart_product.count
+			@total_price += cart_product.product.price * cart_product.count
 		end
 	end
 	def create
