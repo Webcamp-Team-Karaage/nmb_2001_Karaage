@@ -1,16 +1,25 @@
 class MembersController < ApplicationController
   def show
-  	@member = Member.find(params[:id])
+    @member = Member.find(params[:id])
+    if @member != current_member
+      redirect_to member_path(current_member)
+    end
   end
 
   def edit
-  	@member = Member.find(params[:id])
+    @member = Member.find(params[:id])
+    if @member != current_member
+      redirect_to member_path(current_member)
+    end
   end
 
   def update
   	@member = Member.find(params[:id])
   	@member.update(member_params)
-  	redirect_to member_path(@member.id)
+    redirect_to member_path(@member.id)
+    if @member != current_member
+      redirect_to member_path(current_member)
+    end
   end
 
   def delete_me
