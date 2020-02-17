@@ -46,25 +46,26 @@
       </div>
     </div>
 
-    <section>
-      <h4>支払方法</h4>
-      <%= @order.payment %>
-    </section>
-    <section>
-      <h4>お届け先</h4>
-      <%= @order.postal_code %>
-      <%= @order.address %><br>
-      <%= @order.address_name %>
-    </section><!-- 未選択を省く必要あり -->
-    
-    <div class="row">
-      <div class="col-xs-offset-4 col-xs-4">
-        <%= form_for(@order) do |f| %>
-          <%= f.hidden_field :postal_code, :value => @order.postal_code%>
-          <%= f.hidden_field :address, :value => @order.address %>
-          <%= f.hidden_field :address_name , :value => @order.address_name %>
-          <%= f.submit "購入を確定する",class: "btn btn-primary btn-lg center-block" %>
-        <% end %>
+        <section>
+          <h4>支払方法</h4>
+          <%= @order.payment %>
+        </section>
+        <section>
+          <h4>お届け先</h4>
+          <%= @order.postal_code %>
+          <%= @order.address %>
+          <%= @order.address_name %>
+        </section><!-- 未選択を省く必要あり -->
+        <div>
+          <%= form_for(@order) do |f| %>
+            <%= f.hidden_field :postal_code, :value => @order.postal_code%>
+            <%= f.hidden_field :address, :value => @order.address %>
+            <%= f.hidden_field :address_name , :value => @order.address_name %>
+            <%= f.hidden_field :postage , :value => 800 %>
+            <%= f.hidden_field :payment , :value => @order.payment %>
+          <%= f.submit "購入を確定する" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
