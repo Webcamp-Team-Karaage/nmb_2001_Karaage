@@ -34,7 +34,6 @@ class Admin::ProductsController < ApplicationController
   end
 
   def update
-    
     @admin_product = Product.find(params[:id])
     @admin_product.update(params_admin_product)
     if @admin_product.save

@@ -8,17 +8,30 @@
     <p><%= f.attachment_field :product_image%>
     </p>
   </div>
-  <div class = "col-xs-5 text-left">
-    <p><%= f.label :name, "商品名",class:"colum"%>
-    <%= f.text_field :name%></p>
-      <p><%= f.label :text, "商品説明",class:"colum" %>
-        <%= f.text_area :text %></p>
-    <p><%= f.label :genre_id, "ジャンル",class:"colum index1" %>
-    <%= f.collection_select :genre_id, @genres, :id, :name %></p>
-    <p><%= f.label :price, "税抜き価格",class:"colum" %>
-      <%= f.text_field :price%></p>
-    <p><%= f.label :status, "販売ステータス",class:"colum" %>
-      <%= f.select :status, Product.statuses.keys{}%></p>
+ 
+  <div class = "col-xs-5">
+  <table>
+  <tr>
+    <td><p><%= f.label :name, "商品名",class:"colum"%></td>
+    <td><%= f.text_field :name%></p></td>
+  </tr>
+  <tr>
+      <td><p><%= f.label :text, "商品説明",class:"colum"%></td>
+        <td><%= f.text_area :text %></p></td>
+  </tr>
+  <tr>
+    <td><p><%= f.label :genre_id, "ジャンル",class:"colum" %></td>
+    <td><%= f.collection_select :genre_id, @genres, :id, :name %></p></td>
+  </tr>
+  <tr>
+    <td><p><%= f.label :price, "税抜き価格",class:"colum" %></td>
+      <td><%= f.text_field :price%></p></td>
+  </tr>
+  <tr>
+    <td><p><%= f.label :status, "販売ステータス",class:"colum"%></td>
+      <td><%= f.select :status, Product.statuses.keys{}%></p></td>
+  </tr>
+</table>
     <%= f.submit "新規登録",class: "index btn btn-info" %>
   </div>
 </div>

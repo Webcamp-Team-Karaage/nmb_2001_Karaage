@@ -25,3 +25,44 @@
 	<% end %>
 </section>
 
+<table>
+	<thead>
+		<tr>
+			<th>商品名</th>
+			<th>単価(税込)</th>
+			<th>数量</th>
+			<th>小計</th>
+			<th>製作ステータス</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+    <% @admin_order.order_products.each do |product| %>
+        <tr>
+            	<!-- 商品名 -->
+            <td><%= product.product.name %></td>
+            	<!-- 単価（税込） -->
+			<td><%= product.price_tax.floor %></td>
+            	<!-- 数量 -->
+            <td><%= product.count %></td>
+            	<!-- 小計 -->
+            <td><%= (product.price_tax * product.count).floor %></td>
+            	<!-- 製作ステータス -->
+            <td>
+            	<%= form_for(product, url: admin_order_product_path) do |f| %>
+					<%= f.select :status, ["着手不可", "製作待ち", "製作中", "製作完了"] %>
+				<%= f.submit "更新" %>
+				<% end %>
+            </td>
+        </tr>
+    <% end %>
+	</tbody>
+</table>
+
+<h3>商品合計</h3>
+<%= (@price_sum * 1.1).floor %>
+<h3>送料</h3>
+<%= @admin_order.postage %>
+<h3>請求金額合計</h3>
+<%= @admin_order.total_price %>
+
