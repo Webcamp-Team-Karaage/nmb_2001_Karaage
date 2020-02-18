@@ -3,13 +3,19 @@ class Admin::OrdersController < ApplicationController
 
         path = Rails.application.routes.recognize_path(request.referrer)
 
-        if request.referrer == "http://localhost:3000/admins/top"
+        if request.referrer == nil
+        	@admin_orders = Order.all
+        	@title = "全"
+        elsif request.referrer == "http://localhost:3000/admins/top"
                 @admin_orders = Order.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+                @title = "本日の"
         elsif request.referrer.include?("http://localhost:3000/admin/members/") && !request.referrer.include?("edit")
                 @member = Member.find(params[:id])
                 @admin_orders = @member.orders
+                @title = @member.first_name + @member.last_name + "さんの"
         else
                 @admin_orders = Order.all
+                @title = "全"
         end
 
 =begin
