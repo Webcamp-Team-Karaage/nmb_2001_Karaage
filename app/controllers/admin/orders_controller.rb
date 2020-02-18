@@ -47,4 +47,8 @@ class Admin::OrdersController < ApplicationController
 	def order_params
   	params.require(:order).permit(:payment, :address_name, :postal_code, :address, :postage, :status, :total_price, :float)
 	end
+
+	def order_product_params
+	params.require(:orderproduct).permit(:price_tax, :count, :status)
+	end
 end
