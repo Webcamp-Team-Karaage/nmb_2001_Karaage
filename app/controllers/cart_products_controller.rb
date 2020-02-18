@@ -1,25 +1,19 @@
 class CartProductsController < ApplicationController
 	def index
-		@cart_products = CartProduct.where(member_id:current_member)
+		@cart_products = CartProduct.where(member_id: current_member)
 
 		@total_price = 0
 		@cart_products.each do |cart_product|
 			@total_price += cart_product.product.price * cart_product.count
 		end
-		
-		
 	end
 	def create
 		@cart_product = CartProduct.new(cart_product_params)
 		@cart_product.member_id = current_member.id
 		@product = Product.find(params[:cart_product][:product_id])
 		@cart_product.product_id = @product.id
-		if :count != nil
-			@cart_product.save
-			redirect_to cart_products_path
-		else
-			render action: :show
-		end
+		@cart_product.save
+		redirect_to cart_products_path
 	end
 	def update
 		@cart_product = CartProduct.find(params[:id])
