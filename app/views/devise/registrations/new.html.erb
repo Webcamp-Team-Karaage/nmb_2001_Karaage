@@ -42,8 +42,8 @@
 
         <tr>
           <th>郵便番号</th>
-          <td><%= f.text_field :postal_code, autocomplete: "postal_code" %></td>
-          <td>(ハイフン不要)</td>
+          <td>〒<%= f.text_field :postal_code, autocomplete: "postal_code" %></td>
+          <td>(ハイフン必須)</td>
         </tr>
 
         <tr>
