@@ -34,7 +34,7 @@
                       </a>
                     <% end %>
                   </td>
-                  <td class="text-center"><%= cart_product.product.price * cart_product.count %></td>
+                  <td class="text-center"><%= ((cart_product.product.price * 1.1) * cart_product.count).floor %></td>
                   <td class="text-center"><%= link_to "削除する", cart_product_path(cart_product.id), method: :delete,class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %></td>
                 </tr>
               <% end %>
@@ -54,7 +54,7 @@
           <table class = "table table-bordered table-inverse">
             <tr>
               <th class="info">合計金額</th>
-              <td><%= @total_price %></td>
+              <td><%= (@total_price * 1.1).floor %></td>
             </tr>
           </table>
         </div>
