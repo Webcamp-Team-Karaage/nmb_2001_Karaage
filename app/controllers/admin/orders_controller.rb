@@ -65,11 +65,12 @@ class Admin::OrdersController < ApplicationController
 			if params[:order][:status] == "入金確認"
 				@admin_order.update(order_params)
 				@order_products.each do |order_product|
-					order_product.status = "製作中"
+					order_product.status = "製作待ち"
 					order_product.update(status: order_product.status)
 				end			
 			else
-				@admin_order.update(order_params)
+				@admin_order.status = params[:order][:status]
+				@admin_order.update!(status: @admin_order.status)
 			end
 			
 		end
@@ -80,7 +81,7 @@ class Admin::OrdersController < ApplicationController
 	private
 	def order_params
 		
-			params.require(:order).permit(:payment, :address_name, :postal_code, :address, :postage, :status, :total_price, :float,:product_id)
+		params.require(:order).permit(:payment, :address_name, :postal_code, :address, :postage, :status, :total_price, :float,:product_id)
 	end
 	def order_product_params
 		params.require(:order_product).permit(:status)
