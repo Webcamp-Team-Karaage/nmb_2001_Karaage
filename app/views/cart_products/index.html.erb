@@ -22,7 +22,9 @@
               </tr>
             </thead>
             <tbody>
-              <% @cart_products.each do |cart_product| %>
+          
+            <% @cart_products.each do |cart_product| %>
+              
                 <tr>
                   <td><%= attachment_image_tag cart_product.product, :product_image,format:'jpeg',size: "50x50" %><%= cart_product.product.name %></td>
                   <td class="text-center"><%= (cart_product.product.price * 1.1).floor %></td>
@@ -37,7 +39,8 @@
                   <td class="text-center"><%= (cart_product.product.price * 1.1 * cart_product.count).floor %></td>
                   <td class="text-center"><%= link_to "削除する", cart_product_path(cart_product.id), method: :delete,class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %></td>
                 </tr>
-              <% end %>
+             
+            <% end %>
             </tbody>
           </table>
         </div>
