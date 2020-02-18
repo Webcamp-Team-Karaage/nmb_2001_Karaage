@@ -20,12 +20,18 @@ class ShippingAddressesController < ApplicationController
 
 	def edit
 		@shipping_address = ShippingAddress.find(params[:id])
+		if @shipping_address.member_id != current_member.id
+			redirect_to edit_shipping_address_path
+		end
 	end
 
 	def update
 		@shipping_address = ShippingAddress.find(params[:id])
 		@shipping_address.update(shipping_address_params)
 		redirect_to shipping_addresses_path
+		if @shipping_address.member_id != current_member.id
+			redirect_to edit_shipping_address_path
+		end
 	end
 
 	def destroy
