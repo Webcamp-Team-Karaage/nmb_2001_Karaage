@@ -75,3 +75,31 @@
 .genre-link{
 	margin:20px 5px;
 }
+
+//商品詳細
+.product-show{
+	margin-top: 30px;
+}
+.product-show h2{
+	text-decoration:underline;
+	text-decoration-color:#998478;
+}
+
+.product-text{
+	border: 1px solid #ddc8b3;
+	border-radius:3px;
+	padding: 10px
+}
+.product-img {
+	border: 2px solid #ddc8b3;
+	border-radius:3px;
+}
+.count{
+	padding:5px;
+	width:100px;
+	border-radius:3px;
+}
+.price{
+	margin: 20px 0;
+	font-size:20px;
+}

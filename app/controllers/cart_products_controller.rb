@@ -6,8 +6,6 @@ class CartProductsController < ApplicationController
 		@cart_products.each do |cart_product|
 			@total_price += cart_product.product.price * cart_product.count
 		end
-		
-		
 	end
 	def create
 		@cart_product = CartProduct.new(cart_product_params)
