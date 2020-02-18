@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
 		@products = @genre.products.page(params[:page]).reverse_order
 	end
 	def show
+		@genres = Genre.all
+		@genre = Genre.find(params[:id])
 		@cart_product = CartProduct.new
 		@admin_product = Product.find(params[:id])
 	end
