@@ -49,4 +49,5 @@ class Admin::OrdersController < ApplicationController
 
 	def order_product_params
 	params.require(:orderproduct).permit(:price_tax, :count, :status)
+	end
 end
