@@ -12,8 +12,12 @@ class CartProductsController < ApplicationController
 		@cart_product.member_id = current_member.id
 		@product = Product.find(params[:cart_product][:product_id])
 		@cart_product.product_id = @product.id
-		@cart_product.save
-		redirect_to cart_products_path
+		if :count != nil
+			@cart_product.save
+			redirect_to cart_products_path
+		else
+			render action: :show
+		end
 	end
 	def update
 		@cart_product = CartProduct.find(params[:id])
