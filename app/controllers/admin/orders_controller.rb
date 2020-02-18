@@ -5,7 +5,7 @@ class Admin::OrdersController < ApplicationController
 
         if request.referrer == "http://localhost:3000/admins/top"
                 @admin_orders = Order.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
-        elsif request.referrer.include?("http://localhost:3000/admin/members/")
+        elsif request.referrer.include?("http://localhost:3000/admin/members/") && !request.referrer.include?("edit")
                 @member = Member.find(params[:id])
                 @admin_orders = @member.orders
         else

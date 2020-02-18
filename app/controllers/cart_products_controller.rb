@@ -1,6 +1,7 @@
 class CartProductsController < ApplicationController
 	def index
-		@cart_products = CartProduct.all
+		@member = current_member
+		@cart_products = @member.cart_products
 
 		@total_price = 0
 		@cart_products.each do |cart_product|
