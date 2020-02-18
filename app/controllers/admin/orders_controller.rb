@@ -1,6 +1,23 @@
 class Admin::OrdersController < ApplicationController
 	def index
-		@admin_orders = Order.all
+
+        path = Rails.application.routes.recognize_path(request.referrer)
+
+        if request.referrer == nil
+        	@admin_orders = Order.all
+        	@title = "全"
+        elsif request.referrer == "http://localhost:3000/admins/top"
+                @admin_orders = Order.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+                @title = "本日の"
+        elsif request.referrer.include?("http://localhost:3000/admin/members/") && !request.referrer.include?("edit")
+                @member = Member.find(params[:id])
+                @admin_orders = @member.orders
+                @title = @member.first_name + @member.last_name + "さんの"
+        else
+                @admin_orders = Order.all
+                @title = "全"
+        end
+
 =begin
         @total_count = {}
         @admin_orders.each do |order|
@@ -29,8 +46,6 @@ class Admin::OrdersController < ApplicationController
 	def update
 		@admin_order = Order.find(params[:id]) 
 		@order_products = OrderProduct.where(order_id: params[:id])
-		#@order_product = @order_products.find_by(id: params[:order_product][:product_id])
-
 		if params[:order_product]
 			@order_products.each do |order_product|
 				if params[:order_product][:status] == "製作中"
@@ -47,8 +62,6 @@ class Admin::OrdersController < ApplicationController
 				end
 			end
 		elsif params[:order]
-			
-			#@order_product = @order_products.find_by(id: params[:order][:product_id])
 			if params[:order][:status] == "入金確認"
 				@admin_order.update(order_params)
 				@order_products.each do |order_product|
@@ -61,37 +74,6 @@ class Admin::OrdersController < ApplicationController
 			
 		end
 
-		
-		
-		#order_product
-=begin
-		if params[:order_product][:status] == "製作中"
-			@admin_order.status = "制作中"
-			@admin_order.update(status: @admin_order.status)
-			@order_product.update(order_product_params)
-		elsif params[:order_product][:status] == "製作完了"
-			@admin_order.status = "発送準備中"
-			@admin_order.update(status: @admin_order.status)
-			@order_product.status = params[:order_product][:status]
-			@order_product.update(order_product_params)
-		else
-			@order_product.update(order_product_params)
-		end
-
-		#order
-		if params[:order][:status] == "入金確認"
-			@order_product.status = "制作中"
-			@order_product.update(status: @order_product.status)
-		else
-			@order.update(order_params)
-		end
-=end
-
-
-		
-		
-		
-		
 		redirect_to admin_order_path
 	end
 
