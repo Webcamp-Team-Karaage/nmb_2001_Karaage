@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
 	def input
 		@order = Order.new
 		@member = current_member
-		@shipping_addresses = ShippingAddress.all
+		@shipping_addresses = @member.shipping_addresses
 	end
 	def new
 		order = Order.new
