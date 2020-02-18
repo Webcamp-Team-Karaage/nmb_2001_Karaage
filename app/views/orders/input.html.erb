@@ -4,6 +4,7 @@
       <div>
         <h4>購入情報入力</h4>
         <%= form_for(@order, :url => {controller: "orders", action: :new}) do |f| %>
+<<<<<<< HEAD
         <div>
           <h4>支払方法</h4>
           <%= f.radio_button :payment, :クレジットカード %>
@@ -28,6 +29,15 @@
           </section>
           <section>
             <label><%= radio_button_tag "address_select", "3" %>新しいお届け先</label>
+=======
+          <div>
+            <h4>支払方法</h4>
+            &emsp;&emsp;<%= f.radio_button :payment, :クレジットカード %><%= f.label :クレジットカード %><br>
+            &emsp;&emsp;<%= f.radio_button :payment, :銀行振込 %><%= f.label :銀行振り込み%>
+          </div>
+          <div>
+            <h4>お届け先</h4>
+>>>>>>> refs/remotes/origin/master
             <section>
               <label>&emsp;&emsp;<%= radio_button_tag "address_select", "1" %>ご自身の住所</label>
               <div>
@@ -61,7 +71,7 @@
 
           <div class="row">
             <div class="col-xs-offset-4 col-xs-4">
-              <%= f.submit "確認画面へ進む",class: "btn btn-primary btn-lg center-block" %>
+              <%= f.submit "確認画面へ進む", class: "btn btn-primary btn-lg center-block" %>
             </div>
           </div>
         <% end %>
