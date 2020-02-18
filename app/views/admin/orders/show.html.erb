@@ -19,10 +19,11 @@
 </section>
 <section>
 	<h4>注文ステータス</h4>
-	<%= form_for(@admin_order, url: admin_order_path) do |f| %>
+	<%= form_for(@admin_order,:url => {controller: "orders", :action => :update} ) do |f| %>
 		<%= f.select :status, ["入金待ち", "入金確認", "製作中", "発送準備中", "発送済み"] %>
-	<%= f.submit "更新" %>
-	<% end %>
+		
+		<%= f.submit "更新" %>
+	<%end%>
 </section>
 
 <table>
@@ -37,7 +38,7 @@
 		</tr>
 	</thead>
 	<tbody>
-    <% @admin_order.order_products.each do |product| %>
+    <% @order_product.each do |product| %>
         <tr>
             	<!-- 商品名 -->
             <td><%= product.product.name %></td>
@@ -49,7 +50,8 @@
             <td><%= (product.price_tax * product.count).floor %></td>
             	<!-- 製作ステータス -->
             <td>
-            	<%= form_for(product, url: admin_order_product_path) do |f| %>
+				<%= form_for(product,:url => {controller: "orders", :action => :update}) do |f| %>
+					<%= f.hidden_field :product_id , :value => product.id%>
 					<%= f.select :status, ["着手不可", "製作待ち", "製作中", "製作完了"] %>
 				<%= f.submit "更新" %>
 				<% end %>
