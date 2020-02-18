@@ -26,7 +26,7 @@
                     </td>
                     	<!-- 注文商品の個数 -->
 					<td>
-					<%=@total_count%>
+					<%= @total_count[admin_order.id]%>
 					</td>
                     	<!-- 注文ステータス -->
                     <td><%= admin_order.status %></td>
