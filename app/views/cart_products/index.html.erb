@@ -25,7 +25,7 @@
               <% @cart_products.each do |cart_product| %>
                 <tr>
                   <td><%= attachment_image_tag cart_product.product, :product_image,format:'jpeg',size: "50x50" %><%= cart_product.product.name %></td>
-                  <td class="text-center"><%= cart_product.product.price %></td>
+                  <td class="text-center"><%= (cart_product.product.price * 1.1).floor %></td>
                   <td class="text-center">
                     <%= form_for(cart_product) do |f| %>
                       <%= f.text_field :count, :size=>"5" %>
