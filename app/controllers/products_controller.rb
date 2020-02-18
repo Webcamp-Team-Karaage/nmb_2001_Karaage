@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
 	end
 	def show
 		@genres = Genre.all
-		@genre = Genre.find(params[:id])
+
 		@cart_product = CartProduct.new
 		@admin_product = Product.find(params[:id])
 	end
