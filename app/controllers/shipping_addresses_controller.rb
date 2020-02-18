@@ -3,7 +3,7 @@ class ShippingAddressesController < ApplicationController
 	before_action :authenticate_member!
 
 	def index
-		@shipping_addresses = ShippingAddress.all
+		@shipping_addresses = current_member.shipping_addresses
 		@shipping_address = ShippingAddress.new
 	end
 

@@ -13,7 +13,7 @@
         	<tbody>
             <% @admin_orders.each do |admin_order| %>
                 <tr>
-                    <td>
+                    <td class="order-link">
                     	<!-- 購入日時（リンク先は注文履歴詳細） -->
                     	<%= link_to admin_order_path(admin_order.id) do %>
                     		<%= admin_order.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
