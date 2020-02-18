@@ -5,12 +5,13 @@ class Admin::OrdersController < ApplicationController
 
         if request.referrer == "http://localhost:3000/admins/top"
                 @admin_orders = Order.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
-        elsif request.referrer.include?("http://localhost:3000/admin/members/")
+        elsif request.referrer.include?("http://localhost:3000/admin/members/") && !request.referrer.include?("edit")
                 @member = Member.find(params[:id])
                 @admin_orders = @member.orders
         else
                 @admin_orders = Order.all
         end
+
 =begin
         @total_count = {}
         @admin_orders.each do |order|
@@ -45,5 +46,9 @@ class Admin::OrdersController < ApplicationController
 	private
 	def order_params
   	params.require(:order).permit(:payment, :address_name, :postal_code, :address, :postage, :status, :total_price, :float)
+	end
+
+	def order_product_params
+	params.require(:orderproduct).permit(:price_tax, :count, :status)
 	end
 end
