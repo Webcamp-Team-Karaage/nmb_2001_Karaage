@@ -25,7 +25,8 @@
               <div class="product-details">
                 <p class="product-name">商品名：<%= product.name %></p>
                 <p class="product-price">¥<%= product.price %></p>
-                <span class="product-genre"><%= product.genre.name %></span>
+                <span class="product-genre"><%= link_to product.genre.name,products_path(id: product.genre.id) %>
+                </span>
               </div>
             </div>
           <% end %>

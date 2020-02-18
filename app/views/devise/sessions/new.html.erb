@@ -1,5 +1,7 @@
 <div class="row">
-
+    <% if flash[:notice] %>
+      <p class="notice text-center"><%= flash[:notice] %></p>
+    <% end %>
 <div class="col-md-offset-1 col-md-9">
 <div class="panel panel-info">
   <div class="panel-heading">
