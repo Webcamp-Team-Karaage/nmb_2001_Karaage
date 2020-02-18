@@ -28,7 +28,7 @@ class Members::SessionsController < Devise::SessionsController
   def logout_status
     @user = Member.find_by(email: params[:member][:email], status: "退会済")
     if @user
-      flash[:notice] = '退会済みのアカウントです'
+      flash[:withdraw] = '退会済みのアカウントです'
       redirect_to new_member_session_path
     end
   end
