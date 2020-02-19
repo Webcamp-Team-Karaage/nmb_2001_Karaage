@@ -21,7 +21,7 @@
 	<h4>注文ステータス</h4>
 	<%= form_for(@admin_order,:url => {controller: "orders", :action => :update} ) do |f| %>
 		<%= f.select :status, ["入金待ち", "入金確認", "製作中", "発送準備中", "発送済み"] %>
-		
+
 		<%= f.submit "更新" %>
 	<%end%>
 </section>
