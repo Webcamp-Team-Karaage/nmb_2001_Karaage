@@ -19,6 +19,7 @@ class Admin::OrdersController < ApplicationController
         end
 
 
+
         @total_count = {}
         @admin_orders.each do |order|
             sum = 0
@@ -27,7 +28,7 @@ class Admin::OrdersController < ApplicationController
          	end
          	@total_count[order.id] = sum
         end
-        
+
 	end
 
 	def show
