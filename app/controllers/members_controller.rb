@@ -30,6 +30,7 @@ class MembersController < ApplicationController
     @member = Member.find(params[:id])
     @member.status = 1
     @member.save
+    reset_session
     redirect_to root_path
   end
 
