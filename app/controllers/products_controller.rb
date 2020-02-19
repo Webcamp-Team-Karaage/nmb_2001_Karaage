@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 	def index
 		@genres = Genre.all
 		@genre = Genre.find(params[:id])
-		@products = @genre.products.page(params[:page]).reverse_order
+		@products = @genre.products.where(status:"販売中").page(params[:page]).reverse_order
 	end
 	def show
 		@genres = Genre.all
