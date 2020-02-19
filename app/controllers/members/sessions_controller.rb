@@ -2,6 +2,7 @@
 
 class Members::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+   before_action :logout_status, only:[:create]
 
   # GET /resource/sign_in
   # def new
@@ -23,6 +24,13 @@ class Members::SessionsController < Devise::SessionsController
   #end
 
   # protected
+
+  def logout_status
+    @user = Member.find_by(email: params[:member][:email], status: "退会済")
+    if @user.status == "退会済"
+      redirect_to root_path
+    end
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
