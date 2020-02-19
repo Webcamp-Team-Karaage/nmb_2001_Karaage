@@ -30,8 +30,10 @@ class MembersController < ApplicationController
     @member = Member.find(params[:id])
     @member.status = 1
     @member.save
+
     #pry-byebug
     sign_out
+
     redirect_to root_path
   end
 
