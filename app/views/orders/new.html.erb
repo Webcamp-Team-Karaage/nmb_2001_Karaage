@@ -1,10 +1,14 @@
 <div class="body">
   <div class="container">
-    <h4>注文情報確認</h4>
+    <div class = "row">
+      <div class = "col-xs-offset-1 col-xs-7">
+        <h2>注文情報確認</h2>
+      </div>
+    </div>
 
     <!-- 商品名table -->
     <div class = "row">
-      <div class = "col-xs-8">
+      <div class = "col-xs-offset-1 col-xs-7">
         <table class = "table table-bordered table-inverse">
           <thead>
             <tr class = "info">
@@ -27,8 +31,8 @@
         </table>
       </div>
 
-      <!-- 送料table --> 
-      <div class = "col-xs-3">       
+      <!-- 送料table -->
+      <div class = "col-xs-3">
         <table class = "table table-bordered table-inverse">
           <tr>
             <td class = "info">送料</td>
@@ -46,25 +50,34 @@
       </div>
     </div>
 
-    <section>
-      <h4>支払方法</h4>
-      <%= @order.payment %>
-    </section>
-    <section>
-      <h4>お届け先</h4>
-      <%= @order.postal_code %>
-      <%= @order.address %>
-      <%= @order.address_name %>
-    </section><!-- 未選択を省く必要あり -->
-    <div>
-      <%= form_for(@order) do |f| %>
-        <%= f.hidden_field :postal_code, :value => @order.postal_code%>
-        <%= f.hidden_field :address, :value => @order.address %>
-        <%= f.hidden_field :address_name , :value => @order.address_name %>
-        <%= f.hidden_field :postage , :value => 800 %>
-        <%= f.hidden_field :payment , :value => @order.payment %>
-        <%= f.submit "購入を確定する", class: "btn btn-primary" %>
-      <% end %>
+    <div class = "row">
+      <div class = "col-xs-offset-1 col-xs-10">
+        <section>
+          <h3>支払方法</h3>
+          <div class="input-box">
+            <p><%= @order.payment %></p>
+          </div>
+        </section>
+        <section>
+          <h3>お届け先</h3>
+          <div class="input-box">
+          <p>〒<%= @order.postal_code %><br>
+          <%= @order.address %><br>
+          <%= @order.address_name %></p>
+          </div>
+        </section><!-- 未選択を省く必要あり -->
+
+        <div>
+          <%= form_for(@order) do |f| %>
+            <%= f.hidden_field :postal_code, :value => @order.postal_code%>
+            <%= f.hidden_field :address, :value => @order.address %>
+            <%= f.hidden_field :address_name , :value => @order.address_name %>
+            <%= f.hidden_field :postage , :value => 800 %>
+            <%= f.hidden_field :payment , :value => @order.payment %>
+            <%= f.submit "購入を確定する", class: "btn btn-primary btn-lg center-block" %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -26,7 +26,7 @@
 			</tr>
 			<tr>
 				<th class="active">郵便番号</th>
-				<td><%= f.text_field :postal_code %></td>
+				<td>〒<%= f.text_field :postal_code %>(ハイフン必須)</td>
 			</tr>
 			<tr>
 				<th class="active">住所</th>
@@ -34,7 +34,7 @@
 			</tr>
 			<tr>
 				<th class="active">電話番号</th>
-				<td><%= f.text_field :phone %></td>
+				<td><%= f.text_field :phone %>(ハイフン不要)</td>
 			</tr>
 			<tr>
 				<th class="active">メールアドレス</th>
