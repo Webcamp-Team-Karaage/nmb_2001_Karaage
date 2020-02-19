@@ -44,7 +44,7 @@ class Admin::OrdersController < ApplicationController
 	end
 
 	def update
-		@admin_order = Order.find(params[:id]) 
+		@admin_order = Order.find(params[:id])
 		@order_products = OrderProduct.where(order_id: params[:id])
 		if params[:order_product]
 			@order_products.each do |order_product|
@@ -67,12 +67,12 @@ class Admin::OrdersController < ApplicationController
 				@order_products.each do |order_product|
 					order_product.status = "製作待ち"
 					order_product.update(status: order_product.status)
-				end			
+				end
 			else
 				@admin_order.status = params[:order][:status]
 				@admin_order.update!(status: @admin_order.status)
 			end
-			
+
 		end
 
 		redirect_to admin_order_path
@@ -80,11 +80,11 @@ class Admin::OrdersController < ApplicationController
 
 	private
 	def order_params
-		
+
 		params.require(:order).permit(:payment, :address_name, :postal_code, :address, :postage, :status, :total_price, :float,:product_id)
 	end
 	def order_product_params
 		params.require(:order_product).permit(:status)
 	end
-		
+
 end

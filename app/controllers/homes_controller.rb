@@ -2,7 +2,7 @@ class HomesController < ApplicationController
 
 
 	def top
-		@products = Product.page(params[:page]).reverse_order
+		@products = Product.where(status:"販売中").page(params[:page]).reverse_order
 		@genres = Genre.all
 	end
 

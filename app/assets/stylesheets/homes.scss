@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .product-box {
 	padding-top: 10px;
 	color:#756660;
@@ -29,7 +30,13 @@
 	margin-left: 100px;
 	background-color:#9e877e;
 	border-radius: 3px;
-	color:white;
+	padding: 0 3px;
+}
+.product-genre a{
+	color: white;
+}
+.product-genre a:hover{
+	color: white;
 }
 
 //ジャンル検索
