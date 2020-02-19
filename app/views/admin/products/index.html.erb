@@ -1,11 +1,15 @@
 <div class = "container">
-<div class = "row row-index">
-  <div class="col-xs-offset-1 col-xs-7">
-    <div class="page-info"><span class ="product-index">商品一覧画面 </span>
-        <%=link_to new_admin_product_path do %> 
+<div class = "row">
+  <div class="col-xs-offset-1 col-xs-9">
+    <div class="page-info"><h2 class="paroducts-title">商品一覧画面
+        <%=link_to new_admin_product_path do %>
           <span class ="image"><%= image_tag "plus.jpeg",size: "40x40"%></span>
         <%end%>
-      </div>
+    </h2></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-offset-1 col-xs-10">
       <table class= "table table-bordered text-center">
         <thead>
           <tr bgcolor="#f5f5f5">
@@ -20,22 +24,18 @@
           <% @admin_products.each do |admin_product|%>
           <tr>
             <td><%=admin_product.id%></td>
-
             <td>
               <%= link_to admin_product_path(admin_product.id) do %>
                 <%=admin_product.name%>
               <% end %>
             </td>
-
             <td><%=admin_product.price%></td>
-
             <td><%=admin_product.genre.name%></td>
-
             <td><%=admin_product.status%></td>
           </tr>
           <%end%>
         </tbody>
       </table>
+    </div>
   </div>
-</div>
 </div>

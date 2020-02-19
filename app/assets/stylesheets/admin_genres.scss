@@ -2,13 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.index{
-  margin-top: 30px;
+.genre-index{
+  margin-top: 10px;
 }
-.title{
+.genre-edit-title{
   margin-bottom: 30px;
 }
-.edit{
-  margin-top: 10%;
+.genre-edit{
+  margin-top: 5%;
   margin-bottom:7%;
+	border-radius: 5px;
+	padding: 10px;
+	border: 2px solid #ddc8b3;
+}
+.genre-create{
+  margin: 10px 0;
+	border-radius: 5px;
+	padding: 10px;
+	border: 2px solid #ddc8b3;
+}
+.genre-index .label{
+	font-size:16px;
+	vertical-align: middle;
+}
+.genre-create .label{
+	font-size:14px;
 }
